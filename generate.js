@@ -108,6 +108,7 @@ tailwind.config = {
     color: #dde2f5;
     margin: 0;
     padding: 0;
+    padding-bottom: 70px;
   }
   
   /* Light mode support */
@@ -141,7 +142,7 @@ tailwind.config = {
 
 <!-- TOP SYSTEM HEADER & NAVIGATION -->
 <header class="sticky top-0 z-50 bg-surface-container-low/95 backdrop-blur-md border-b border-surface-variant/50 px-4 py-3 flex items-center justify-between shadow-lg">
-  <div class="flex items-center gap-3 cursor-pointer" onclick="showPage('login')">
+  <div class="flex items-center gap-3 cursor-pointer" onclick="showPage('dashboard')">
     <div class="w-9 h-9 rounded-xl bg-gradient-to-tr from-primary-container to-secondary flex items-center justify-center shadow-md shadow-primary/20">
       <span class="material-symbols-outlined text-on-primary text-xl" style="font-variation-settings: 'FILL' 1;">vital_signs</span>
     </div>
@@ -176,6 +177,12 @@ tailwind.config = {
       <span class="material-symbols-outlined text-outline text-sm absolute right-2 top-1/2 -translate-y-1/2 pointer-events-none">expand_more</span>
     </div>
 
+    <!-- Live Profile Pill -->
+    <div id="top-user-pill" class="hidden sm:flex items-center gap-2 px-2.5 py-1 rounded-xl bg-surface-container border border-outline-variant/30">
+      <img id="top-user-avatar" src="https://images.unsplash.com/photo-1559839734-2b71ea197ec2?w=100&auto=format&fit=crop" class="w-6 h-6 rounded-full object-cover border border-primary/50" />
+      <span id="top-user-name" class="text-xs font-bold text-on-surface truncate max-w-[100px]">Dra. Camila</span>
+    </div>
+
     <!-- Dark/Light Theme Toggle -->
     <button onclick="toggleTheme()" class="w-9 h-9 rounded-xl bg-surface-container-high flex items-center justify-center text-on-surface hover:text-primary transition-colors border border-outline-variant/30 shadow-sm" title="Alternar Modo Escuro / Claro">
       <span class="material-symbols-outlined text-xl" id="theme-icon">light_mode</span>
@@ -203,20 +210,31 @@ snippets.slice(1).forEach((s, idx) => {
 fullHtml += `
 </main>
 
-<!-- BOTTOM GLOBAL FOOTER -->
-<footer class="border-t border-surface-variant/40 bg-surface-container-lowest py-4 px-6 text-center text-xs text-on-surface-variant flex flex-col sm:flex-row items-center justify-between gap-3 shadow-inner">
-  <div class="flex items-center gap-2">
-    <span class="w-2 h-2 rounded-full bg-primary animate-pulse"></span>
-    <span class="font-medium">MedPulse AI Engine v2.4 • Conforme Resolução CFM 2.336/2023 & CFO</span>
+<!-- BOTTOM NAVIGATION DOCK -->
+<nav class="fixed bottom-0 left-0 w-full z-50 bg-surface-container-lowest/95 backdrop-blur-xl border-t border-surface-variant/40 shadow-2xl">
+  <div class="max-w-4xl mx-auto flex justify-around items-center h-16 px-4">
+    <button onclick="showPage('dashboard')" class="flex flex-col items-center justify-center gap-1 text-on-surface-variant hover:text-primary transition-colors focus:text-primary">
+      <span class="material-symbols-outlined text-2xl">space_dashboard</span>
+      <span class="text-[11px] font-semibold">Dashboard</span>
+    </button>
+    <button onclick="showPage('format')" class="flex flex-col items-center justify-center gap-1 text-on-surface-variant hover:text-primary transition-colors focus:text-primary">
+      <span class="material-symbols-outlined text-2xl">auto_awesome</span>
+      <span class="text-[11px] font-semibold">Gerador IA</span>
+    </button>
+    <button onclick="showPage('calendar')" class="flex flex-col items-center justify-center gap-1 text-on-surface-variant hover:text-primary transition-colors focus:text-primary">
+      <span class="material-symbols-outlined text-2xl">calendar_month</span>
+      <span class="text-[11px] font-semibold">Calendário</span>
+    </button>
+    <button onclick="showPage('meta-connect')" class="flex flex-col items-center justify-center gap-1 text-on-surface-variant hover:text-primary transition-colors focus:text-primary">
+      <span class="material-symbols-outlined text-2xl">account_circle</span>
+      <span class="text-[11px] font-semibold">Perfil Instagram</span>
+    </button>
   </div>
-  <div class="flex items-center gap-4 text-on-surface-variant font-semibold">
-    <button onclick="showPage('dashboard')" class="hover:text-primary transition-colors">Dashboard</button>
-    <button onclick="showPage('calendar')" class="hover:text-primary transition-colors">Agendador</button>
-    <button onclick="showPage('format')" class="hover:text-primary transition-colors">+ Criar Conteúdo</button>
-  </div>
-</footer>
+</nav>
 
 <script>
+const API_BASE = window.location.hostname === 'localhost' ? 'http://localhost:3001' : '';
+
 function showPage(pageId) {
   document.querySelectorAll('.page-view').forEach(el => el.classList.remove('active'));
   const target = document.getElementById('page-' + pageId);
@@ -242,9 +260,58 @@ function toggleTheme() {
   }
 }
 
-// Enhance Interactive Flow Connections
+// Fetch Profile Live Data from Meta Graph API
+async function loadLiveProfile() {
+  try {
+    const res = await fetch(\`\${API_BASE}/api/instagram/profile\`);
+    const data = await res.json();
+    if (data.success && data.instagram) {
+      const ig = data.instagram;
+      const doc = data.doctorProfile;
+      
+      // Update top bar user info
+      const topAvatar = document.getElementById('top-user-avatar');
+      const topName = document.getElementById('top-user-name');
+      const topPill = document.getElementById('top-user-pill');
+      
+      if (topAvatar && ig.profile_picture_url) topAvatar.src = ig.profile_picture_url;
+      if (topName && doc.name) topName.textContent = doc.name;
+      if (topPill) topPill.classList.remove('hidden');
+
+      // Update avatar across pages
+      document.querySelectorAll('img[alt*="avatar"], img[alt*="foto"], img[src*="photo"]').forEach(img => {
+        if (ig.profile_picture_url) img.src = ig.profile_picture_url;
+      });
+
+      console.log('✅ Conectado ao Instagram de:', ig.username);
+    }
+  } catch (err) {
+    console.log('Modo offline / local:', err);
+  }
+}
+
+// Generate Real Content via Gemini API backend
+async function triggerAiGeneration(topic, specialty) {
+  try {
+    const res = await fetch(\`\${API_BASE}/api/ai/generate\`, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ topic, specialty })
+    });
+    const data = await res.json();
+    if (data.success && data.result) {
+      return data.result;
+    }
+  } catch (e) {
+    console.error('Erro na API de IA:', e);
+  }
+  return null;
+}
+
 document.addEventListener('DOMContentLoaded', () => {
-  // Bind CTA login
+  loadLiveProfile();
+
+  // Bind login CTA
   const loginCta = document.getElementById('cta-login');
   if (loginCta) {
     loginCta.addEventListener('click', (e) => {
@@ -252,23 +319,6 @@ document.addEventListener('DOMContentLoaded', () => {
       showPage('meta-connect');
     });
   }
-
-  // Bind any button with navigation intentions
-  document.querySelectorAll('button, a').forEach(btn => {
-    const text = btn.innerText ? btn.innerText.toLowerCase() : '';
-    if (text.includes('avançar') || text.includes('continuar') || text.includes('próximo')) {
-      btn.addEventListener('click', (e) => {
-        const currentSelect = document.getElementById('screen-selector');
-        if (currentSelect) {
-          const currentIndex = currentSelect.selectedIndex;
-          if (currentIndex < currentSelect.options.length - 1) {
-            const nextVal = currentSelect.options[currentIndex + 1].value;
-            showPage(nextVal);
-          }
-        }
-      });
-    }
-  });
 });
 </script>
 </body>
@@ -276,4 +326,4 @@ document.addEventListener('DOMContentLoaded', () => {
 `;
 
 fs.writeFileSync(htmlPath, fullHtml, 'utf8');
-console.log('index.html created successfully! Size:', fs.statSync(htmlPath).size, 'bytes');
+console.log('index.html updated with dynamic live endpoints! Size:', fs.statSync(htmlPath).size, 'bytes');
