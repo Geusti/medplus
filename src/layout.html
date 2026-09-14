@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html class="dark" lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
+<title>MedPulse AI - Console de Crescimento Médico</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet">
+<script src="https://cdn.tailwindcss.com"></script>
+<script>
+tailwind.config = {
+  darkMode: "class",
+  theme: {
+    extend: {
+      colors: {
+        "on-secondary": "#003640",
+        "primary": "#6bd8cb",
+        "surface-container-low": "#161b29",
+        "surface-variant": "#2f3543",
+        "secondary-fixed-dim": "#4cd7f6",
+        "on-tertiary-fixed-variant": "#653e00",
+        "on-surface-variant": "#bcc9c6",
+        "on-tertiary-fixed": "#2a1700",
+        "secondary-container": "#03b5d3",
+        "on-secondary-container": "#00424e",
+        "tertiary-fixed": "#ffddb8",
+        "primary-fixed": "#89f5e7",
+        "on-tertiary": "#472a00",
+        "surface-container-highest": "#2f3543",
+        "surface-container-lowest": "#080e1b",
+        "surface-dim": "#0d1320",
+        "inverse-surface": "#dde2f5",
+        "inverse-on-surface": "#2a303f",
+        "surface-bright": "#333948",
+        "primary-container": "#29a195",
+        "on-background": "#dde2f5",
+        "secondary-fixed": "#acedff",
+        "error-container": "#93000a",
+        "on-primary-fixed-variant": "#005049",
+        "on-error-container": "#ffdad6",
+        "tertiary": "#ffb95f",
+        "primary-fixed-dim": "#6bd8cb",
+        "on-primary-container": "#00302b",
+        "on-primary": "#003732",
+        "surface-container": "#1a1f2d",
+        "on-secondary-fixed-variant": "#004e5c",
+        "surface-container-high": "#242a38",
+        "on-tertiary-container": "#3e2400",
+        "inverse-primary": "#006a61",
+        "surface": "#0d1320",
+        "secondary": "#4cd7f6",
+        "background": "#0d1320",
+        "tertiary-container": "#ca8100",
+        "on-surface": "#dde2f5",
+        "error": "#ffb4ab",
+        "surface-tint": "#6bd8cb",
+        "on-secondary-fixed": "#001f26",
+        "outline": "#879391",
+        "on-error": "#690005",
+        "on-primary-fixed": "#00201d",
+        "tertiary-fixed-dim": "#ffb95f",
+        "outline-variant": "#3d4947"
+      },
+      borderRadius": {
+        "DEFAULT": "0.25rem",
+        "lg": "0.5rem",
+        "xl": "0.75rem",
+        "full": "9999px"
+      },
+      spacing": {
+        "gutter-sm": "0.75rem",
+        "space-lg": "1.5rem",
+        "space-md": "1rem",
+        "space-sm": "0.5rem",
+        "margin": "1.25rem",
+        "space-xs": "0.25rem",
+        "space-xl": "2rem",
+        "margin-sm": "1rem",
+        "gutter": "1rem"
+      },
+      fontFamily": {
+        "sans": ["Plus Jakarta Sans", "sans-serif"]
+      }
+    }
+  }
+}
+</script>
+<style>
+  body {
+    background-color: #0d1320;
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    color: #dde2f5;
+    margin: 0;
+    padding: 0;
+    padding-bottom: 70px;
+  }
+  
+  html.light body {
+    background-color: #F8FAFC !important;
+    color: #0F172A !important;
+  }
+  html.light .bg-surface { background-color: #F8FAFC !important; }
+  html.light .bg-surface-container-lowest { background-color: #FFFFFF !important; }
+  html.light .bg-surface-container-low { background-color: #F1F5F9 !important; }
+  html.light .bg-surface-container { background-color: #E2E8F0 !important; }
+  html.light .bg-surface-container-high { background-color: #CBD5E1 !important; }
+  html.light .text-on-surface { color: #0F172A !important; }
+  html.light .text-on-surface-variant { color: #475569 !important; }
+  html.light .border-surface-variant { border-color: #E2E8F0 !important; }
+
+  .page-view { display: none; }
+  .page-view.active {
+    display: block;
+    animation: fadeIn 0.25s ease-in-out;
+  }
+  @keyframes fadeIn {
+    from { opacity: 0; transform: translateY(4px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+</style>
+</head>
+<body class="bg-surface text-on-surface min-h-screen flex flex-col justify-between selection:bg-primary/30 relative">
+
+<!-- TOP SYSTEM HEADER -->
+<header class="sticky top-0 z-50 bg-surface-container-low/95 backdrop-blur-md border-b border-surface-variant/50 px-4 py-3 flex items-center justify-between shadow-lg">
+  <div class="flex items-center gap-3 cursor-pointer" onclick="showPage('dashboard')">
+    <div class="w-9 h-9 rounded-xl bg-gradient-to-tr from-primary-container to-secondary flex items-center justify-center shadow-md shadow-primary/20">
+      <span class="material-symbols-outlined text-on-primary text-xl" style="font-variation-settings: 'FILL' 1;">vital_signs</span>
+    </div>
+    <div class="flex flex-col">
+      <div class="flex items-center gap-2">
+        <span class="font-bold text-lg tracking-tight text-on-surface">MedPulse <span class="text-primary font-light">AI</span></span>
+        <span class="hidden sm:inline-flex text-[10px] uppercase font-bold px-1.5 py-0.5 rounded bg-primary/20 text-primary border border-primary/30">CFM / CFO Secure</span>
+      </div>
+      <span class="text-[11px] text-on-surface-variant hidden sm:inline">Clinical Growth Console</span>
+    </div>
+  </div>
+
+  <div class="flex items-center gap-2 sm:gap-3">
+    <!-- Quick Stepper Selector -->
+    <div class="relative hidden lg:block">
+      <select id="screen-selector" onchange="showPage(this.value)" class="bg-surface-container-high text-on-surface text-xs font-semibold px-3 py-2 pr-8 rounded-xl border border-outline-variant/40 outline-none focus:border-primary appearance-none cursor-pointer shadow-sm">
+        <option value="login">1. login</option>
+        <option value="meta-connect">2. meta-connect</option>
+        <option value="onboarding">3. onboarding</option>
+        <option value="dashboard">4. dashboard</option>
+        <option value="calendar">5. calendar</option>
+        <option value="format">6. format</option>
+        <option value="objective">7. objective</option>
+        <option value="weekly">8. weekly</option>
+        <option value="media">9. media</option>
+        <option value="preview">10. preview</option>
+        <option value="generated">11. generated</option>
+        <option value="stories-detail">12. stories-detail</option>
+        <option value="final-export">13. final-export</option>
+      </select>
+      <span class="material-symbols-outlined text-outline text-sm absolute right-2 top-1/2 -translate-y-1/2 pointer-events-none">expand_more</span>
+    </div>
+
+    <!-- Live Profile Pill -->
+    <div id="top-user-pill" class="hidden sm:flex items-center gap-2 px-2.5 py-1 rounded-xl bg-surface-container border border-outline-variant/30">
+      <img id="top-user-avatar" src="https://images.unsplash.com/photo-1559839734-2b71ea197ec2?w=100&auto=format&fit=crop" class="w-6 h-6 rounded-full object-cover border border-primary/50" />
+      <span id="top-user-name" class="text-xs font-bold text-on-surface truncate max-w-[100px]">Dra. Camila</span>
+    </div>
+
+    <!-- Dark/Light Theme Toggle -->
+    <button onclick="toggleTheme()" class="w-9 h-9 rounded-xl bg-surface-container-high flex items-center justify-center text-on-surface hover:text-primary transition-colors border border-outline-variant/30 shadow-sm" title="Alternar Modo Escuro / Claro">
+      <span class="material-symbols-outlined text-xl" id="theme-icon">light_mode</span>
+    </button>
+  </div>
+</header>
+
+<!-- MAIN APP CONTAINER -->
+<main class="flex-grow w-full pb-20">
+<!-- CONTENT_PLACEHOLDER -->
+</main>
+
+<!-- BOTTOM NAVIGATION DOCK -->
+<nav class="fixed bottom-0 left-0 w-full z-50 bg-surface-container-lowest/95 backdrop-blur-xl border-t border-surface-variant/40 shadow-2xl">
+  <div class="max-w-4xl mx-auto flex justify-around items-center h-16 px-4">
+    <button onclick="showPage('dashboard')" class="flex flex-col items-center justify-center gap-1 text-on-surface-variant hover:text-primary transition-colors focus:text-primary">
+      <span class="material-symbols-outlined text-2xl">space_dashboard</span>
+      <span class="text-[11px] font-semibold hidden sm:block">Dashboard</span>
+    </button>
+    <button onclick="showPage('format')" class="flex flex-col items-center justify-center gap-1 text-on-surface-variant hover:text-primary transition-colors focus:text-primary">
+      <span class="material-symbols-outlined text-2xl">auto_awesome</span>
+      <span class="text-[11px] font-semibold hidden sm:block">Gerador IA</span>
+    </button>
+    <button onclick="showPage('calendar')" class="flex flex-col items-center justify-center gap-1 text-on-surface-variant hover:text-primary transition-colors focus:text-primary">
+      <span class="material-symbols-outlined text-2xl">calendar_month</span>
+      <span class="text-[11px] font-semibold hidden sm:block">Calendário</span>
+    </button>
+    <button onclick="showPage('meta-connect')" class="flex flex-col items-center justify-center gap-1 text-on-surface-variant hover:text-primary transition-colors focus:text-primary">
+      <span class="material-symbols-outlined text-2xl">account_circle</span>
+      <span class="text-[11px] font-semibold hidden sm:block">Perfil Meta</span>
+    </button>
+  </div>
+</nav>
+
+<script>
+const API_BASE = window.location.hostname === 'localhost' ? 'http://localhost:3001' : '';
+
+function showPage(pageId) {
+  document.querySelectorAll('.page-view').forEach(el => el.classList.remove('active'));
+  const target = document.getElementById('page-' + pageId);
+  if (target) {
+    target.classList.add('active');
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+    const sel = document.getElementById('screen-selector');
+    if (sel && sel.value !== pageId) sel.value = pageId;
+  }
+}
+
+function toggleTheme() {
+  const html = document.documentElement;
+  const icon = document.getElementById('theme-icon');
+  if (html.classList.contains('dark')) {
+    html.classList.remove('dark');
+    html.classList.add('light');
+    icon.textContent = 'dark_mode';
+  } else {
+    html.classList.remove('light');
+    html.classList.add('dark');
+    icon.textContent = 'light_mode';
+  }
+}
+
+// Fetch Profile Live Data
+async function loadLiveProfile() {
+  try {
+    const res = await fetch(`${API_BASE}/api/instagram/profile`);
+    const data = await res.json();
+    if (data.success && data.instagram) {
+      const ig = data.instagram;
+      const doc = data.doctorProfile;
+      const topAvatar = document.getElementById('top-user-avatar');
+      const topName = document.getElementById('top-user-name');
+      const topPill = document.getElementById('top-user-pill');
+      
+      if (topAvatar && ig.profile_picture_url) topAvatar.src = ig.profile_picture_url;
+      if (topName && doc.name) topName.textContent = doc.name.split(' ')[0] + ' ' + (doc.name.split(' ')[1]||'');
+      if (topPill) topPill.classList.remove('hidden');
+
+      document.querySelectorAll('img[alt*="avatar"], img[alt*="foto"], img[src*="photo"]').forEach(img => {
+        if (ig.profile_picture_url) img.src = ig.profile_picture_url;
+      });
+    }
+  } catch (err) {
+    console.log('Modo offline / local:', err);
+  }
+}
+
+document.addEventListener('DOMContentLoaded', () => {
+  loadLiveProfile();
+});
+</script>
+</body>
+</html>

@@ -1,0 +1,247 @@
+<div class="flex flex-col w-full pb-8 max-w-md mx-auto">
+<!-- Progress Header & Tracker -->
+<div class="px-margin pt-2 mb-6">
+<div class="flex items-center justify-between mb-2">
+<div class="flex items-center gap-2">
+<span class="w-2 h-2 rounded-full bg-primary animate-pulse"></span>
+<span class="font-label-md text-label-md text-primary uppercase tracking-wider">ETAPA 1 DE 2 • DADOS CLÍNICOS</span>
+</div>
+<span class="font-label-md text-label-md text-on-surface-variant">50% Concluído</span>
+</div>
+<!-- Progress Bar Track -->
+<div class="w-full h-1.5 bg-surface-container-high rounded-full overflow-hidden flex">
+<div class="h-full bg-gradient-to-r from-primary-container to-primary w-1/2 rounded-full transition-all duration-500 ease-out shadow-[0_0_12px_rgba(107,216,203,0.5)]"></div>
+</div>
+</div>
+<!-- Title & Contextual Header with Ambient Badge -->
+<div class="px-margin mb-6">
+<div class="inline-flex items-center gap-2 px-2.5 py-1 rounded-full bg-surface-container-low mb-3">
+<span class="material-symbols-outlined text-primary text-[14px]">verified_user</span>
+<span class="font-label-sm text-label-sm text-primary uppercase">Diretrizes CFM / CRO Ativas</span>
+</div>
+<h1 class="font-headline-lg-mobile text-headline-lg-mobile text-on-surface mb-2 font-semibold">
+      Personalize sua estratégia com IA
+    </h1>
+<p class="font-body-md text-body-md text-on-surface-variant leading-relaxed">
+      Crie conteúdos éticos e magnéticos para atrair pacientes particulares.
+    </p>
+</div>
+<!-- Form Stack -->
+<div class="px-margin flex flex-col gap-6">
+<!-- Doctor Persona Card Feature -->
+<div class="flex items-center gap-3 p-3.5 bg-surface-container-low rounded-xl">
+<div class="relative w-12 h-12 rounded-full overflow-hidden shrink-0 bg-surface-variant shadow-md">
+<img class="w-full h-full object-cover" data-alt="Close up portrait of a confident Brazilian female doctor smiling warmly in an ultra-modern aesthetic clinic background with subtle teal and amber ambient lighting, wearing a clean designer lab coat" src="https://lh3.googleusercontent.com/aida-public/AB6AXuD2lVlxaxWYdSOc8nLq2uLbOFUorqhSnBThAbTmplwvmNDOuFwO00o4Mq1RrwMyFbicKfyiKgVGA9mU1juHC5OeSaCiMXfzI9Tb4vd_lIBad4C_Y-G-gHqn7lACzIPNTz_TwL-TtWqtd7P58bUlmA6Zc2ap2Xe_WQe7k74YSqgpIWvcOp9Fmnd5sMIE_61kTnJKNFq22pcC5R8dU1z_TnbWTzSG_kBW7vdOL6_Q_8OO_co6h9JRDlPE">
+<div class="absolute bottom-0 right-0 w-3.5 h-3.5 bg-primary rounded-full ring-2 ring-surface-container-low"></div>
+</div>
+<div class="min-w-0 flex-1">
+<p class="font-label-sm text-label-sm text-primary uppercase">Perfil em Validação</p>
+<p class="font-headline-sm text-headline-sm text-on-surface truncate">Dra. Camila Vasconcelos</p>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Dermatologia Clínica &amp; Estética</p>
+</div>
+<span class="material-symbols-outlined text-secondary text-[20px]">auto_awesome</span>
+</div>
+<!-- Campo 1: Identificação Profissional & Registro -->
+<div class="flex flex-col gap-2">
+<label class="font-label-lg text-label-lg text-on-surface flex items-center justify-between">
+<span class="">Nome Completo do Profissional</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant">Como você atende</span>
+</label>
+<div class="flex items-center h-12 px-4 rounded-lg bg-surface-container-low focus-within:bg-surface-container transition-colors shadow-inner">
+<span class="material-symbols-outlined text-outline text-[20px] mr-3 shrink-0">badge</span>
+<input class="w-full bg-transparent font-body-md text-body-md text-on-surface focus:outline-none placeholder:text-outline" placeholder="Ex: Dra. Juliana Rossi" type="text" value="Dra. Camila Vasconcelos">
+</div>
+<!-- Registro Auxiliar Integrado -->
+<div class="flex items-center h-12 px-4 rounded-lg bg-surface-container-low focus-within:bg-surface-container transition-colors shadow-inner mt-1">
+<span class="material-symbols-outlined text-outline text-[20px] mr-3 shrink-0">medical_services</span>
+<input class="w-full bg-transparent font-body-md text-body-md text-on-surface focus:outline-none placeholder:text-outline" placeholder="CRM, CRO ou RMS (ex: CRM/SP 000.000)" type="text" value="CRM/SP 142.890 • RQE 89.201">
+<div class="flex items-center gap-1 shrink-0 px-2 py-0.5 rounded bg-surface-variant text-on-surface-variant">
+<span class="material-symbols-outlined text-primary text-[12px]">check_circle</span>
+<span class="font-label-sm text-label-sm uppercase">Ativo</span>
+</div>
+</div>
+</div>
+<!-- Campo 2: Especialidade / Área com Chips Visuais -->
+<div class="flex flex-col gap-2.5">
+<div class="flex items-center justify-between">
+<label class="font-label-lg text-label-lg text-on-surface">Especialidade ou Área de Atuação</label>
+<span class="font-label-sm text-label-sm text-secondary uppercase">1 Selecionada</span>
+</div>
+<div class="flex flex-wrap gap-2" id="specialties-group">
+<!-- Selected Item -->
+<button class="spec-chip flex items-center gap-1.5 px-3.5 py-2 rounded-lg bg-primary text-on-primary font-label-md text-label-md transition-all shadow-md shadow-primary/20" type="button">
+<span class="material-symbols-outlined text-[16px]">check</span>
+<span class="">Dermatologia Clínica &amp; Estética</span>
+</button>
+<button class="spec-chip flex items-center gap-1.5 px-3.5 py-2 rounded-lg bg-surface-container text-on-surface-variant font-label-md text-label-md hover:text-on-surface transition-all" type="button">
+<span class="">Odontologia &amp; Implantes</span>
+</button>
+<button class="spec-chip flex items-center gap-1.5 px-3.5 py-2 rounded-lg bg-surface-container text-on-surface-variant font-label-md text-label-md hover:text-on-surface transition-all" type="button">
+<span class="">Cirurgia Plástica</span>
+</button>
+<button class="spec-chip flex items-center gap-1.5 px-3.5 py-2 rounded-lg bg-surface-container text-on-surface-variant font-label-md text-label-md hover:text-on-surface transition-all" type="button">
+<span class="">Medicina Integrativa</span>
+</button>
+<button class="spec-chip flex items-center gap-1.5 px-3.5 py-2 rounded-lg bg-surface-container text-on-surface-variant font-label-md text-label-md hover:text-on-surface transition-all" type="button">
+<span class="">Ginecologia &amp; Obstetrícia</span>
+</button>
+<button class="spec-chip flex items-center gap-1.5 px-3.5 py-2 rounded-lg bg-surface-container text-on-surface-variant font-label-md text-label-md hover:text-on-surface transition-all" type="button">
+<span class="">Biomedicina Estética</span>
+</button>
+<button class="flex items-center gap-1.5 px-3 py-2 rounded-lg bg-surface-container-low text-secondary font-label-md text-label-md hover:bg-surface-container transition-colors" type="button">
+<span class="material-symbols-outlined text-[16px]">add</span>
+<span class="">Outra especialidade</span>
+</button>
+</div>
+</div>
+<!-- Campo 3: Localização da Clínica -->
+<div class="flex flex-col gap-2">
+<label class="font-label-lg text-label-lg text-on-surface">Cidade e Estado da Prática</label>
+<div class="flex items-center h-12 px-4 rounded-lg bg-surface-container-low focus-within:bg-surface-container transition-colors shadow-inner">
+<span class="material-symbols-outlined text-secondary text-[20px] mr-3 shrink-0">location_on</span>
+<input class="w-full bg-transparent font-body-md text-body-md text-on-surface focus:outline-none placeholder:text-outline" placeholder="Ex: Rio de Janeiro, RJ - Barra" type="text" value="São Paulo, SP - Jardins">
+<span class="material-symbols-outlined text-outline text-[18px] shrink-0">my_location</span>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant px-1">
+        A IA calibrará referências culturais, hábitos sazonais e ganchos geolocalizados.
+      </p>
+</div>
+<!-- Campo 4: Objetivo Principal com Cards Selecionáveis -->
+<div class="flex flex-col gap-3 pt-1">
+<div class="flex items-center justify-between">
+<label class="font-label-lg text-label-lg text-on-surface">Objetivo Principal</label>
+<span class="font-label-sm text-label-sm text-tertiary uppercase">Foco Estratégico</span>
+</div>
+<!-- Objective Cards Deck -->
+<div class="flex flex-col gap-2.5" id="goals-deck">
+<!-- Card 1 (Ativo) -->
+<div class="goal-card relative p-4 rounded-xl bg-surface-container cursor-pointer transition-all shadow-md shadow-primary/10">
+<div class="flex items-start justify-between gap-3">
+<div class="flex items-start gap-3">
+<div class="w-10 h-10 rounded-lg bg-primary-container text-on-primary flex items-center justify-center shrink-0 mt-0.5">
+<span class="material-symbols-outlined text-[22px]">target</span>
+</div>
+<div>
+<p class="font-headline-sm text-headline-sm text-on-surface font-semibold">Atrair Pacientes Particulares</p>
+<p class="font-body-sm text-body-sm text-on-surface-variant mt-0.5">
+                  Converter visualizações em agendamentos.
+                </p>
+</div>
+</div>
+<div class="check-icon w-5 h-5 rounded-full bg-primary text-on-primary flex items-center justify-center shrink-0 mt-1 shadow-sm">
+<span class="material-symbols-outlined text-[14px]">check</span>
+</div>
+</div>
+<!-- Micro Metas Tag Indicator -->
+<div class="mt-3 pt-3 flex items-center gap-2">
+<span class="inline-flex items-center gap-1 font-label-sm text-label-sm px-2 py-0.5 rounded bg-surface-container-high text-primary">
+<span class="material-symbols-outlined text-[12px]">trending_up</span> +34% Taxa de Conversão Típica
+            </span>
+<span class="font-label-sm text-label-sm text-outline">Ganchos focados em dores reais</span>
+</div>
+</div>
+<!-- Card 2 -->
+<div class="goal-card relative p-4 rounded-xl bg-surface-container-low hover:bg-surface-container cursor-pointer transition-all">
+<div class="flex items-start justify-between gap-3">
+<div class="flex items-start gap-3">
+<div class="w-10 h-10 rounded-lg bg-surface-variant text-secondary flex items-center justify-center shrink-0 mt-0.5">
+<span class="material-symbols-outlined text-[22px]">account_balance</span>
+</div>
+<div>
+<p class="font-headline-sm text-headline-sm text-on-surface font-semibold">Construir Autoridade</p>
+<p class="font-body-sm text-body-sm text-on-surface-variant mt-0.5">
+                  Consolidar reputação de alto padrão e referência.
+                </p>
+</div>
+</div>
+<div class="check-icon w-5 h-5 rounded-full bg-surface-variant text-transparent flex items-center justify-center shrink-0 mt-1">
+<span class="material-symbols-outlined text-[14px]">check</span>
+</div>
+</div>
+</div>
+<!-- Card 3 -->
+<div class="goal-card relative p-4 rounded-xl bg-surface-container-low hover:bg-surface-container cursor-pointer transition-all">
+<div class="flex items-start justify-between gap-3">
+<div class="flex items-start gap-3">
+<div class="w-10 h-10 rounded-lg bg-surface-variant text-tertiary flex items-center justify-center shrink-0 mt-0.5">
+<span class="material-symbols-outlined text-[22px]">bolt</span>
+</div>
+<div>
+<p class="font-headline-sm text-headline-sm text-on-surface font-semibold">Gerar Conteúdo Rápido</p>
+<p class="font-body-sm text-body-sm text-on-surface-variant mt-0.5">
+                  Economizar horas semanais sem riscos jurídicos.
+                </p>
+</div>
+</div>
+<div class="check-icon w-5 h-5 rounded-full bg-surface-variant text-transparent flex items-center justify-center shrink-0 mt-1">
+<span class="material-symbols-outlined text-[14px]">check</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- AI Clinical Guardrail Pill Notice -->
+<div class="p-3 rounded-lg bg-surface-container-lowest flex items-start gap-3 mt-1">
+<span class="material-symbols-outlined text-primary text-[18px] shrink-0 mt-0.5">lock_clock</span>
+<p class="font-body-sm text-body-sm text-on-surface-variant leading-snug">
+<span class="text-on-surface font-semibold">Filtro Ético:</span> Inclusão obrigatória de CRM/CRO nas postagens geradas.
+      </p>
+</div>
+<!-- Actions & Continuation Footer -->
+<div class="pt-3 flex flex-col gap-3">
+<button class="w-full h-12 rounded-lg bg-gradient-to-r from-primary-container via-primary to-secondary text-on-primary font-label-lg text-label-lg flex items-center justify-center gap-2 shadow-lg shadow-primary/25 active:scale-[0.99] transition-transform" id="continue-button" type="button"><span class="">Avançar</span><span class="material-symbols-outlined text-[18px]">arrow_forward</span></button>
+<p class="font-body-sm text-body-sm text-outline text-center px-4 leading-relaxed">
+        Você poderá ajustar essas preferências e especialidades a qualquer momento nas configurações da clínica.
+      </p>
+</div>
+</div>
+</div>
+<script>
+  // Simple micro-interactions for onboarding selection delight
+  document.addEventListener('DOMContentLoaded', () => {
+    // Chips toggle behavior
+    const specChips = document.querySelectorAll('.spec-chip');
+    specChips.forEach(chip => {
+      chip.addEventListener('click', () => {
+        specChips.forEach(c => {
+          c.classList.remove('bg-primary', 'text-on-primary', 'shadow-md', 'shadow-primary/20');
+          c.classList.add('bg-surface-container', 'text-on-surface-variant');
+          const icon = c.querySelector('.material-symbols-outlined');
+          if (icon) icon.remove();
+        });
+
+        chip.classList.add('bg-primary', 'text-on-primary', 'shadow-md', 'shadow-primary/20');
+        chip.classList.remove('bg-surface-container', 'text-on-surface-variant');
+        
+        const newIcon = document.createElement('span');
+        newIcon.className = 'material-symbols-outlined text-[16px]';
+        newIcon.textContent = 'check';
+        chip.insertBefore(newIcon, chip.firstChild);
+      });
+    });
+
+    // Goal Cards selection behavior
+    const goalCards = document.querySelectorAll('.goal-card');
+    goalCards.forEach(card => {
+      card.addEventListener('click', () => {
+        goalCards.forEach(c => {
+          c.classList.remove('bg-surface-container', 'shadow-md', 'shadow-primary/10');
+          c.classList.add('bg-surface-container-low');
+          const check = c.querySelector('.check-icon');
+          if (check) {
+            check.classList.remove('bg-primary', 'text-on-primary');
+            check.classList.add('bg-surface-variant', 'text-transparent');
+          }
+        });
+
+        card.classList.add('bg-surface-container', 'shadow-md', 'shadow-primary/10');
+        card.classList.remove('bg-surface-container-low');
+        const activeCheck = card.querySelector('.check-icon');
+        if (activeCheck) {
+          activeCheck.classList.add('bg-primary', 'text-on-primary');
+          activeCheck.classList.remove('bg-surface-variant', 'text-transparent');
+        }
+      });
+    });
+  });
+</script>

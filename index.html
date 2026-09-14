@@ -97,7 +97,6 @@ tailwind.config = {
     padding-bottom: 70px;
   }
   
-  /* Light mode support */
   html.light body {
     background-color: #F8FAFC !important;
     color: #0F172A !important;
@@ -111,9 +110,7 @@ tailwind.config = {
   html.light .text-on-surface-variant { color: #475569 !important; }
   html.light .border-surface-variant { border-color: #E2E8F0 !important; }
 
-  .page-view {
-    display: none;
-  }
+  .page-view { display: none; }
   .page-view.active {
     display: block;
     animation: fadeIn 0.25s ease-in-out;
@@ -124,9 +121,9 @@ tailwind.config = {
   }
 </style>
 </head>
-<body class="bg-surface text-on-surface min-h-screen flex flex-col justify-between selection:bg-primary/30">
+<body class="bg-surface text-on-surface min-h-screen flex flex-col justify-between selection:bg-primary/30 relative">
 
-<!-- TOP SYSTEM HEADER & NAVIGATION -->
+<!-- TOP SYSTEM HEADER -->
 <header class="sticky top-0 z-50 bg-surface-container-low/95 backdrop-blur-md border-b border-surface-variant/50 px-4 py-3 flex items-center justify-between shadow-lg">
   <div class="flex items-center gap-3 cursor-pointer" onclick="showPage('dashboard')">
     <div class="w-9 h-9 rounded-xl bg-gradient-to-tr from-primary-container to-secondary flex items-center justify-center shadow-md shadow-primary/20">
@@ -137,28 +134,27 @@ tailwind.config = {
         <span class="font-bold text-lg tracking-tight text-on-surface">MedPulse <span class="text-primary font-light">AI</span></span>
         <span class="hidden sm:inline-flex text-[10px] uppercase font-bold px-1.5 py-0.5 rounded bg-primary/20 text-primary border border-primary/30">CFM / CFO Secure</span>
       </div>
-      <span class="text-[11px] text-on-surface-variant hidden sm:inline">Clinical Growth & Social AI Console</span>
+      <span class="text-[11px] text-on-surface-variant hidden sm:inline">Clinical Growth Console</span>
     </div>
   </div>
 
-  <!-- NAVIGATION TABS & CONTROLS -->
   <div class="flex items-center gap-2 sm:gap-3">
     <!-- Quick Stepper Selector -->
-    <div class="relative">
+    <div class="relative hidden lg:block">
       <select id="screen-selector" onchange="showPage(this.value)" class="bg-surface-container-high text-on-surface text-xs font-semibold px-3 py-2 pr-8 rounded-xl border border-outline-variant/40 outline-none focus:border-primary appearance-none cursor-pointer shadow-sm">
-        <option value="login">1. Login & Autenticação</option>
-        <option value="meta-connect">2. Conexão Meta & Instagram</option>
-        <option value="onboarding">3. Onboarding Profissional</option>
-        <option value="dashboard">4. Dashboard & Métricas IA</option>
-        <option value="calendar">5. Calendário & Agendamento</option>
-        <option value="format">6. IA • Escolha do Formato</option>
-        <option value="objective">7. IA • Objetivo do Conteúdo</option>
-        <option value="weekly">8. IA • Planejamento Semanal</option>
-        <option value="media">9. IA • Escolha da Mídia</option>
-        <option value="preview">10. IA • Personalização & Preview</option>
-        <option value="generated">11. IA • Conteúdo Gerado</option>
-        <option value="stories-detail">12. IA • Stories Sequenciais</option>
-        <option value="final-export">13. IA • Publicar & Exportar</option>
+        <option value="login">1. login</option>
+        <option value="meta-connect">2. meta-connect</option>
+        <option value="onboarding">3. onboarding</option>
+        <option value="dashboard">4. dashboard</option>
+        <option value="calendar">5. calendar</option>
+        <option value="format">6. format</option>
+        <option value="objective">7. objective</option>
+        <option value="weekly">8. weekly</option>
+        <option value="media">9. media</option>
+        <option value="preview">10. preview</option>
+        <option value="generated">11. generated</option>
+        <option value="stories-detail">12. stories-detail</option>
+        <option value="final-export">13. final-export</option>
       </select>
       <span class="material-symbols-outlined text-outline text-sm absolute right-2 top-1/2 -translate-y-1/2 pointer-events-none">expand_more</span>
     </div>
@@ -177,11 +173,12 @@ tailwind.config = {
 </header>
 
 <!-- MAIN APP CONTAINER -->
-<main class="flex-grow max-w-4xl mx-auto w-full px-2 sm:px-4 py-6">
+<main class="flex-grow w-full pb-20">
 
 <!-- SECTION 1: login -->
-<div id="page-login" class="page-view active">
-<main class="flex flex-col relative w-full bg-surface flex-grow"><div class="flex flex-col w-full pb-8">
+<div id="page-login" class="page-view active w-full">
+  <div class="max-w-4xl mx-auto px-4 sm:px-6 md:px-8 py-6 w-full flex flex-col">
+<div class="flex flex-col w-full pb-8">
 <div class="relative w-full px-5 pt-3 pb-6 flex flex-col items-center text-center overflow-hidden">
 <div class="absolute -top-12 left-1/2 -translate-x-1/2 w-72 h-72 rounded-full bg-primary/10 blur-3xl pointer-events-none"></div>
 <div class="absolute top-20 right-2 w-48 h-48 rounded-full bg-secondary/10 blur-2xl pointer-events-none"></div>
@@ -202,7 +199,7 @@ tailwind.config = {
       Acelere sua autoridade médica no Instagram
     </h1>
 <p class="font-body-md text-body-md text-on-surface-variant max-w-xs leading-relaxed">
-      Estratégias validadas para médicos, dentistas e especialistas de saúde ampliarem alcance ético.
+      Amplie seu alcance ético com estratégias validadas pela IA.
     </p>
 <div class="w-full mt-5 px-3 py-2.5 rounded-xl bg-surface-container-low shadow-sm flex items-center justify-between">
 <div class="flex items-center gap-2 min-w-0">
@@ -210,14 +207,14 @@ tailwind.config = {
 <span class="material-symbols-outlined text-tertiary text-sm" style="font-variation-settings: 'FILL' 1;">verified</span>
 </div>
 <div class="flex flex-col text-left min-w-0">
-<span class="font-label-sm text-label-sm text-on-surface truncate">Especialistas Ativos Hoje</span>
-<span class="font-body-sm text-body-sm text-on-surface-variant">+1.420 cirurgiões e clínicos</span>
+<span class="font-label-sm text-label-sm text-on-surface truncate">Especialistas Ativos</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant">+1.420 clínicas</span>
 </div>
 </div>
 <span class="font-label-sm text-label-sm px-2 py-0.5 rounded-md bg-primary/10 text-primary shrink-0">+99.2% HIPAA</span>
 </div>
 </div>
-<div class="px-5 flex flex-col gap-4">
+<div class="px-5 flex flex-col gap-4 max-w-md mx-auto w-full">
 <button class="w-full h-12 rounded-xl bg-surface-container-high hover:bg-surface-bright active:scale-[0.99] transition-all flex items-center justify-center gap-3 shadow-md" type="button">
 <svg aria-hidden="true" class="w-5 h-5 shrink-0" viewBox="0 0 24 24">
 <path d="M23.745 12.27c0-.7-.06-1.4-.19-2.07H12v4.51h6.6c-.29 1.52-1.14 2.8-2.4 3.65v3.03h3.88c2.27-2.09 3.665-5.17 3.665-9.12z" fill="#4285F4"></path>
@@ -284,7 +281,7 @@ tailwind.config = {
 <span class="material-symbols-outlined text-primary text-base shrink-0 mt-0.5">gavel</span>
 <p class="font-body-sm text-body-sm text-on-surface-variant leading-tight">
 <span class="font-semibold text-on-surface">Em conformidade com o CFM/CFO:</span>
-          Algoritmos pré-treinados na Resolução CFM 2.336/2023. Blindagem de dados de pacientes e criptografia de ponta a ponta.
+          IA alinhada à Res. 2.336/2023 com criptografia de ponta a ponta.
         </p>
 </div>
 </div>
@@ -312,14 +309,14 @@ tailwind.config = {
       });
     }
   })();
-</script></main>
-
-
+</script>
+  </div>
 </div>
 
 <!-- SECTION 2: meta-connect -->
-<div id="page-meta-connect" class="page-view ">
-<main class="flex flex-col relative w-full bg-surface flex-grow"><div class="flex flex-col w-full px-margin pb-space-xl space-y-space-md">
+<div id="page-meta-connect" class="page-view  w-full">
+  <div class="max-w-4xl mx-auto px-4 sm:px-6 md:px-8 py-6 w-full flex flex-col">
+<div class="flex flex-col w-full px-margin pb-space-xl space-y-space-md max-w-md mx-auto">
 <!-- Progress Bar Header -->
 <div class="flex flex-col space-y-space-xs pt-space-xs">
 <div class="flex items-center justify-between text-on-surface-variant font-label-sm text-label-sm">
@@ -334,7 +331,7 @@ tailwind.config = {
 <div class="flex items-center justify-center">
 <div class="inline-flex items-center space-x-space-xs px-space-sm py-1 rounded-full bg-surface-container-high/70 backdrop-blur-md">
 <span class="material-symbols-outlined text-primary text-[14px]" style="font-variation-settings: 'FILL' 1;">verified_user</span>
-<span class="font-label-sm text-label-sm text-on-surface tracking-normal">Oficial Meta Graph API Partner &amp; Seguro</span>
+<span class="font-label-sm text-label-sm text-on-surface tracking-normal">Parceiro Oficial Meta Graph API</span>
 </div>
 </div>
 <!-- Dynamic Pairing Hub Illustration -->
@@ -376,7 +373,7 @@ tailwind.config = {
 <div class="flex flex-col space-y-space-xs text-center px-space-xs">
 <h1 class="font-headline-lg-mobile text-headline-lg-mobile text-on-surface">Conecte seu Instagram Profissional</h1>
 <p class="font-body-md text-body-md text-on-surface-variant">
-      Analisamos suas métricas para diagnosticar oportunidades de crescimento sem solicitar sua senha pessoal.
+      Analisamos suas métricas para identificar oportunidades de crescimento. Não solicitamos sua senha.
     </p>
 </div>
 <!-- Live Status Card -->
@@ -402,7 +399,7 @@ tailwind.config = {
 <span class="material-symbols-outlined text-[16px]">check</span>
 </div>
 <p class="font-body-md text-body-md text-on-surface flex-1">
-          Frequência de postagens e formatos mais performáticos <span class="text-on-surface-variant font-label-sm">(Reels, Carrossel, Stories)</span>
+          Formatos de maior performance <span class="text-on-surface-variant font-label-sm">(Reels, Carrossel, Stories)</span>
 </p>
 </li>
 <li class="flex items-start space-x-space-sm">
@@ -410,7 +407,7 @@ tailwind.config = {
 <span class="material-symbols-outlined text-[16px]">check</span>
 </div>
 <p class="font-body-md text-body-md text-on-surface flex-1">
-          Horários de maior interação dos seus pacientes em potencial
+          Horários de pico de engajamento
         </p>
 </li>
 <li class="flex items-start space-x-space-sm">
@@ -418,7 +415,7 @@ tailwind.config = {
 <span class="material-symbols-outlined text-[16px]">check</span>
 </div>
 <p class="font-body-md text-body-md text-on-surface flex-1">
-          Taxa de retenção e alcance orgânico dos últimos 90 dias
+          Alcance orgânico e retenção (últimos 90 dias)
         </p>
 </li>
 <li class="flex items-start space-x-space-sm">
@@ -426,7 +423,7 @@ tailwind.config = {
 <span class="material-symbols-outlined text-[16px]">check</span>
 </div>
 <p class="font-body-md text-body-md text-on-surface flex-1">
-          Alinhamento do tom de voz com normas éticas da área médica
+          Tom de voz e alinhamento com a ética médica
         </p>
 </li>
 </ul>
@@ -436,7 +433,7 @@ tailwind.config = {
 <span class="material-symbols-outlined text-primary text-[20px] mt-0.5">verified</span>
 <p class="font-body-sm text-body-sm text-on-surface-variant">
 <strong class="text-on-surface font-label-lg text-label-lg block mb-0.5">100% Seguro e em Conformidade</strong>
-      Nunca publicamos nada sem sua autorização prévia e não possuímos acesso a mensagens diretas privadas (Directs).
+      Nada é publicado sem sua autorização prévia. Não temos acesso as suas mensagens diretas (Directs).
     </p>
 </div>
 <!-- Context Image Feature (Doctor Dashboard Preview) -->
@@ -479,14 +476,14 @@ tailwind.config = {
       }, 2500);
     });
   }
-</script></main>
-
-
+</script>
+  </div>
 </div>
 
 <!-- SECTION 3: onboarding -->
-<div id="page-onboarding" class="page-view ">
-<main class="flex flex-col relative w-full bg-surface flex-grow"><div class="flex flex-col w-full pb-8">
+<div id="page-onboarding" class="page-view  w-full">
+  <div class="max-w-4xl mx-auto px-4 sm:px-6 md:px-8 py-6 w-full flex flex-col">
+<div class="flex flex-col w-full pb-8 max-w-md mx-auto">
 <!-- Progress Header & Tracker -->
 <div class="px-margin pt-2 mb-6">
 <div class="flex items-center justify-between mb-2">
@@ -511,7 +508,7 @@ tailwind.config = {
       Personalize sua estratégia com IA
     </h1>
 <p class="font-body-md text-body-md text-on-surface-variant leading-relaxed">
-      Para criar conteúdos éticos, magnéticos e estritamente alinhados ao seu público de pacientes particulares.
+      Crie conteúdos éticos e magnéticos para atrair pacientes particulares.
     </p>
 </div>
 <!-- Form Stack -->
@@ -597,7 +594,7 @@ tailwind.config = {
 <!-- Campo 4: Objetivo Principal com Cards Selecionáveis -->
 <div class="flex flex-col gap-3 pt-1">
 <div class="flex items-center justify-between">
-<label class="font-label-lg text-label-lg text-on-surface">Objetivo Principal no Instagram</label>
+<label class="font-label-lg text-label-lg text-on-surface">Objetivo Principal</label>
 <span class="font-label-sm text-label-sm text-tertiary uppercase">Foco Estratégico</span>
 </div>
 <!-- Objective Cards Deck -->
@@ -610,9 +607,9 @@ tailwind.config = {
 <span class="material-symbols-outlined text-[22px]">target</span>
 </div>
 <div>
-<p class="font-headline-sm text-headline-sm text-on-surface font-semibold">Atrair Novos Pacientes Particulares</p>
+<p class="font-headline-sm text-headline-sm text-on-surface font-semibold">Atrair Pacientes Particulares</p>
 <p class="font-body-sm text-body-sm text-on-surface-variant mt-0.5">
-                  Converter visualizações orgânicas em conversas no WhatsApp e consultas agendadas.
+                  Converter visualizações em agendamentos.
                 </p>
 </div>
 </div>
@@ -636,9 +633,9 @@ tailwind.config = {
 <span class="material-symbols-outlined text-[22px]">account_balance</span>
 </div>
 <div>
-<p class="font-headline-sm text-headline-sm text-on-surface font-semibold">Fortalecer Autoridade Médica</p>
+<p class="font-headline-sm text-headline-sm text-on-surface font-semibold">Construir Autoridade</p>
 <p class="font-body-sm text-body-sm text-on-surface-variant mt-0.5">
-                  Consolidar reputação de alto padrão e ser referência regional em casos complexos.
+                  Consolidar reputação de alto padrão e referência.
                 </p>
 </div>
 </div>
@@ -655,9 +652,9 @@ tailwind.config = {
 <span class="material-symbols-outlined text-[22px]">bolt</span>
 </div>
 <div>
-<p class="font-headline-sm text-headline-sm text-on-surface font-semibold">Gerar Conteúdo Rápido e Ético</p>
+<p class="font-headline-sm text-headline-sm text-on-surface font-semibold">Gerar Conteúdo Rápido</p>
 <p class="font-body-sm text-body-sm text-on-surface-variant mt-0.5">
-                  Economizar mais de 8h semanais sem riscos jurídicos ou infrações deontológicas.
+                  Economizar horas semanais sem riscos jurídicos.
                 </p>
 </div>
 </div>
@@ -672,12 +669,12 @@ tailwind.config = {
 <div class="p-3 rounded-lg bg-surface-container-lowest flex items-start gap-3 mt-1">
 <span class="material-symbols-outlined text-primary text-[18px] shrink-0 mt-0.5">lock_clock</span>
 <p class="font-body-sm text-body-sm text-on-surface-variant leading-snug">
-<span class="text-on-surface font-semibold">Filtro de Salvaguarda Ativado:</span> As postagens geradas incluirão obrigatoriamente nome e número de inscrição no conselho, prevenindo promessas de resultado enganoso.
+<span class="text-on-surface font-semibold">Filtro Ético:</span> Inclusão obrigatória de CRM/CRO nas postagens geradas.
       </p>
 </div>
 <!-- Actions & Continuation Footer -->
 <div class="pt-3 flex flex-col gap-3">
-<button class="w-full h-12 rounded-lg bg-gradient-to-r from-primary-container via-primary to-secondary text-on-primary font-label-lg text-label-lg flex items-center justify-center gap-2 shadow-lg shadow-primary/25 active:scale-[0.99] transition-transform" id="continue-button" type="button"><span class="">Continuar: Conectar Instagram (2/2)</span><span class="material-symbols-outlined text-[18px]">arrow_forward</span></button>
+<button class="w-full h-12 rounded-lg bg-gradient-to-r from-primary-container via-primary to-secondary text-on-primary font-label-lg text-label-lg flex items-center justify-center gap-2 shadow-lg shadow-primary/25 active:scale-[0.99] transition-transform" id="continue-button" type="button"><span class="">Avançar</span><span class="material-symbols-outlined text-[18px]">arrow_forward</span></button>
 <p class="font-body-sm text-body-sm text-outline text-center px-4 leading-relaxed">
         Você poderá ajustar essas preferências e especialidades a qualquer momento nas configurações da clínica.
       </p>
@@ -732,14 +729,14 @@ tailwind.config = {
       });
     });
   });
-</script></main>
-
-
+</script>
+  </div>
 </div>
 
 <!-- SECTION 4: dashboard -->
-<div id="page-dashboard" class="page-view ">
-<header class="fixed top-0 w-full z-50 bg-surface/85 backdrop-blur-xl pt-safe"><div class="h-16 px-margin flex items-center justify-between"><div class="flex items-center gap-space-sm"><img alt="MedPulse AI Logo" class="h-8 w-auto object-contain" src="https://lh3.googleusercontent.com/aida/AEtjO1W7CgRYs8Ux-xQg_uIrfX0XVeshreLVKzt5x7mB_1LZ3a2rcgx9nE8N31-zOAaFpILntGAr0GDSmKqzQ0S-F61U-_vER0dQWtiWT3JoI8HM8OgUlz1Q2G8upgyLRr1aSs_jI8qarjfWOSFgxv7tJMs6CC8vdNbNAKKqWCMoc_wC9K38gQrvUWQ5pfsWfOJ8eSVeaH4JEMXWu6cPe_346yN20PwPjyQUEpSmsrUnXITB9LfKdtvaTyNS0DQ"><div class="flex flex-col"><span class="font-label-lg text-label-lg text-on-surface leading-none font-bold tracking-tight">MedPulse AI</span><span class="font-label-sm text-label-sm text-primary uppercase tracking-wider font-semibold mt-0.5">Dashboard</span></div></div><div class="flex items-center gap-space-sm"><div class="w-11 h-11 flex items-center justify-center"><img alt="Profile" class="w-8 h-8 rounded-full object-cover shadow-[0_0_12px_rgba(107,216,203,0.25)]" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAaKYBI8_F4mlH53XKTLd8e_FXxUq6HGl7nJfdAtTt0w8Evp_xYd48yv-F3webFdyetSn94dCmcO_5pUDAxM3ED2VT88Mv27OVysUuxuCbA-xTBtgcoILK8LKCEvQ2TTNIwo_8FNqy3l_RqkkQTswUz7S6nkA5caPtDpRGNNKA1AU9iJHEPXnE1lxElEf3C4DPjPOLInD-tj3920zN1tV6_t-Iz0o4kHGwfe__fB2HvLwB3Tyykpm7o"></div></div></div></header><main class="flex flex-col relative w-full px-margin pt-16 pb-24 bg-surface flex-grow"><div class="flex flex-col w-full gap-space-lg pb-6">
+<div id="page-dashboard" class="page-view  w-full">
+  <div class="max-w-4xl mx-auto px-4 sm:px-6 md:px-8 py-6 w-full flex flex-col">
+<div class="flex flex-col w-full gap-space-lg pb-6">
 <!-- Perfil do Instagram Conectado -->
 <div class="flex items-center justify-between p-space-md rounded-xl bg-surface-container-low shadow-sm">
 <div class="flex items-center gap-space-sm min-w-0">
@@ -918,7 +915,7 @@ tailwind.config = {
 <div class="flex items-center justify-between">
 <div class="flex items-center gap-2">
 <span class="material-symbols-outlined text-primary text-[22px]">psychology</span>
-<h3 class="font-headline-sm text-headline-sm text-on-surface">Diagnóstico da IA</h3>
+<h3 class="font-headline-sm text-headline-sm text-on-surface">Diagnóstico</h3>
 </div>
 <span class="px-2 py-0.5 rounded-full bg-primary/10 text-primary font-label-sm text-label-sm font-semibold">Auditoria Contínua</span>
 </div>
@@ -932,11 +929,11 @@ tailwind.config = {
 </div>
 <div class="flex flex-col min-w-0">
 <div class="flex items-center gap-2">
-<span class="font-label-lg text-label-lg text-on-surface font-semibold">Baixa frequência de Reels</span>
+<span class="font-label-lg text-label-lg text-on-surface font-semibold">Baixa frequência (Reels)</span>
 <span class="px-1.5 py-0.2 rounded bg-error-container text-on-error-container font-label-sm text-label-sm">Urgente</span>
 </div>
 <p class="font-body-md text-body-md text-on-surface-variant mt-1">
-            Você publicou apenas <strong>2 Reels nos últimos 14 dias</strong>. Contas de dermatologia com 3x/semana têm <span class="text-secondary font-semibold">3.4x mais alcance</span> orgânico de novos pacientes na sua cidade.
+            Apenas <strong>2 Reels em 14 dias</strong>. Aumente para 3x/semana para <span class="text-secondary font-semibold">3.4x mais alcance</span> na sua cidade.
           </p>
 </div>
 </div>
@@ -947,11 +944,11 @@ tailwind.config = {
 </div>
 <div class="flex flex-col min-w-0">
 <div class="flex items-center gap-2">
-<span class="font-label-lg text-label-lg text-on-surface font-semibold">Poucos conteúdos educativos</span>
+<span class="font-label-lg text-label-lg text-on-surface font-semibold">Falta de conteúdo educativo</span>
 <span class="px-1.5 py-0.2 rounded bg-tertiary-container/30 text-tertiary font-label-sm text-label-sm">Alerta</span>
 </div>
 <p class="font-body-md text-body-md text-on-surface-variant mt-1">
-            Seus posts estão muito concentrados em bastidores. Pacientes em potencial convertem quando entendem os mitos de skincare e as etapas de procedimentos preventivos.
+            Foco excessivo em bastidores. Pacientes convertem mais ao entender mitos e tratamentos.
           </p>
 </div>
 </div>
@@ -962,11 +959,11 @@ tailwind.config = {
 </div>
 <div class="flex flex-col min-w-0">
 <div class="flex items-center gap-2">
-<span class="font-label-lg text-label-lg text-on-surface font-semibold">Excelente retenção em posts pessoais</span>
+<span class="font-label-lg text-label-lg text-on-surface font-semibold">Boa retenção (Pessoal)</span>
 <span class="px-1.5 py-0.2 rounded bg-primary/20 text-primary font-label-sm text-label-sm">Destaque</span>
 </div>
 <p class="font-body-md text-body-md text-on-surface-variant mt-1">
-            Fotos no consultório com narrativa humanizada geraram o <strong>dobro de comentários e salvamentos</strong> em comparação com imagens puramente clínicas de banco.
+            Fotos humanizadas geraram <strong>2x mais comentários</strong> que imagens de banco.
           </p>
 </div>
 </div>
@@ -1039,7 +1036,7 @@ tailwind.config = {
 </div>
 <!-- Botão de Ação Rápida Principal -->
 <div class="sticky bottom-20 z-30 pt-2">
-<button class="w-full h-12 rounded-xl bg-gradient-to-r from-primary to-secondary text-on-primary font-headline-sm text-headline-sm flex items-center justify-center gap-2 shadow-lg hover:opacity-95 active:scale-[0.99] transition-all" onclick="alert('Iniciando Gerador de Posts MedPulse AI - Etapa 1: Escolha do Formato...')"><span class="material-symbols-outlined text-[22px]">auto_awesome</span> Criar Post com IA • Etapa 1: Formato</button>
+<button class="w-full h-12 rounded-xl bg-gradient-to-r from-primary to-secondary text-on-primary font-headline-sm text-headline-sm flex items-center justify-center gap-2 shadow-lg hover:opacity-95 active:scale-[0.99] transition-all" onclick="showPage('format')"><span class="material-symbols-outlined text-[22px]">auto_awesome</span> Criar Post com IA</button>
 </div>
 </div>
 <script>
@@ -1072,14 +1069,14 @@ tailwind.config = {
     const percentage = (completed / total) * 100;
     document.getElementById('checklist-progress-bar').style.width = `${percentage}%`;
   }
-</script></main><nav class="fixed bottom-0 w-full z-50 pb-safe bg-surface-container-lowest/90 backdrop-blur-xl shadow-[0_1px_8px_rgba(0,0,0,0.04)]" data-active-classes="text-primary"><div class="flex justify-around items-center h-16 px-space-xs"><a aria-current="page" class="flex flex-col items-center justify-center gap-space-xs min-w-[64px] min-h-[44px] transition-colors text-primary" data-path="dashboard" href="#"><span class="material-symbols-outlined text-[22px]">space_dashboard</span><span class="font-label-sm text-label-sm">Dashboard</span></a><a class="flex flex-col items-center justify-center gap-space-xs min-w-[64px] min-h-[44px] text-on-surface-variant hover:text-on-surface transition-colors" data-path="gerador-ia" href="#"><span class="material-symbols-outlined text-[22px]">auto_awesome</span><span class="font-label-sm text-label-sm">Gerador IA</span></a><a class="flex flex-col items-center justify-center gap-space-xs min-w-[64px] min-h-[44px] text-on-surface-variant hover:text-on-surface transition-colors" data-path="calendario" href="#"><span class="material-symbols-outlined text-[22px]">calendar_month</span><span class="font-label-sm text-label-sm">Calendário</span></a><a class="flex flex-col items-center justify-center gap-space-xs min-w-[64px] min-h-[44px] text-on-surface-variant hover:text-on-surface transition-colors" data-path="relatorios" href="#"><span class="material-symbols-outlined text-[22px]">analytics</span><span class="font-label-sm text-label-sm">Relatórios</span></a></div></nav>
-
-
+</script>
+  </div>
 </div>
 
 <!-- SECTION 5: calendar -->
-<div id="page-calendar" class="page-view ">
-<header class="fixed top-0 w-full z-50 bg-surface/85 backdrop-blur-xl pt-safe"><div class="h-16 px-margin flex items-center justify-between"><div class="flex items-center gap-space-sm"><img alt="MedPulse AI Logo" class="h-8 w-auto object-contain" src="https://lh3.googleusercontent.com/aida/AEtjO1W7CgRYs8Ux-xQg_uIrfX0XVeshreLVKzt5x7mB_1LZ3a2rcgx9nE8N31-zOAaFpILntGAr0GDSmKqzQ0S-F61U-_vER0dQWtiWT3JoI8HM8OgUlz1Q2G8upgyLRr1aSs_jI8qarjfWOSFgxv7tJMs6CC8vdNbNAKKqWCMoc_wC9K38gQrvUWQ5pfsWfOJ8eSVeaH4JEMXWu6cPe_346yN20PwPjyQUEpSmsrUnXITB9LfKdtvaTyNS0DQ"/><div class="flex flex-col"><span class="font-label-lg text-label-lg text-on-surface leading-none font-bold tracking-tight">MedPulse AI</span><span class="font-label-sm text-label-sm text-primary uppercase tracking-wider font-semibold mt-0.5">Calendário</span></div></div><div class="flex items-center gap-space-sm"><div class="flex items-center gap-space-xs"><div class="w-11 h-11 flex items-center justify-center"><img alt="Dra. Isabella Silva" class="w-8 h-8 rounded-full object-cover shadow-[0_0_12px_rgba(107,216,203,0.25)] border border-primary/20" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAaKYBI8_F4mlH53XKTLd8e_FXxUq6HGl7nJfdAtTt0w8Evp_xYd48yv-F3webFdyetSn94dCmcO_5pUDAxM3ED2VT88Mv27OVysUuxuCbA-xTBtgcoILK8LKCEvQ2TTNIwo_8FNqy3l_RqkkQTswUz7S6nkA5caPtDpRGNNKA1AU9iJHEPXnE1lxElEf3C4DPjPOLInD-tj3920zN1tV6_t-Iz0o4kHGwfe__fB2HvLwB3Tyykpm7o"/></div></div></div></div></header><main class="flex flex-col relative w-full px-margin pt-16 pb-24 bg-surface flex-grow"><div class="flex flex-col w-full gap-space-lg">
+<div id="page-calendar" class="page-view  w-full">
+  <div class="max-w-4xl mx-auto px-4 sm:px-6 md:px-8 py-6 w-full flex flex-col">
+<div class="flex flex-col w-full max-w-md mx-auto gap-space-lg">
 <!-- 1. Cabeçalho de Calendário & Ação Rápida -->
 <div class="flex flex-col gap-space-md">
 <div class="flex items-start justify-between gap-space-sm">
@@ -1472,12 +1469,14 @@ tailwind.config = {
       });
     });
   })();
-</script></main><nav class="fixed bottom-0 w-full z-50 pb-safe bg-surface-container-lowest/90 backdrop-blur-xl shadow-[0_1px_8px_rgba(0,0,0,0.04)]" data-active-classes="text-primary"><div class="flex justify-around items-center h-16 px-space-xs"><a class="flex flex-col items-center justify-center gap-space-xs min-w-[64px] min-h-[44px] text-on-surface-variant hover:text-on-surface transition-colors" data-path="dashboard" href="#"><span class="material-symbols-outlined text-[22px]">space_dashboard</span><span class="font-label-sm text-label-sm">Dashboard</span></a><a class="flex flex-col items-center justify-center gap-space-xs min-w-[64px] min-h-[44px] text-on-surface-variant hover:text-on-surface transition-colors" data-path="gerador-ia" href="#"><span class="material-symbols-outlined text-[22px]">auto_awesome</span><span class="font-label-sm text-label-sm">Gerador IA</span></a><a class="flex flex-col items-center justify-center gap-space-xs min-w-[64px] min-h-[44px] text-on-surface-variant hover:text-on-surface transition-colors" data-path="calendario" href="#"><span class="material-symbols-outlined text-[22px]">calendar_month</span><span class="font-label-sm text-label-sm">Calendário</span></a><a class="flex flex-col items-center justify-center gap-space-xs min-w-[64px] min-h-[44px] text-on-surface-variant hover:text-on-surface transition-colors" data-path="relatorios" href="#"><span class="material-symbols-outlined text-[22px]">analytics</span><span class="font-label-sm text-label-sm">Relatórios</span></a></div></nav>
+</script>
+  </div>
 </div>
 
 <!-- SECTION 6: format -->
-<div id="page-format" class="page-view ">
-<header class="fixed top-0 w-full z-50 bg-surface/85 backdrop-blur-xl pt-safe"><div class="h-16 px-margin flex items-center justify-between"><div class="flex items-center gap-space-sm"><img alt="MedPulse AI Logo" class="h-8 w-auto object-contain" src="https://lh3.googleusercontent.com/aida/AEtjO1W7CgRYs8Ux-xQg_uIrfX0XVeshreLVKzt5x7mB_1LZ3a2rcgx9nE8N31-zOAaFpILntGAr0GDSmKqzQ0S-F61U-_vER0dQWtiWT3JoI8HM8OgUlz1Q2G8upgyLRr1aSs_jI8qarjfWOSFgxv7tJMs6CC8vdNbNAKKqWCMoc_wC9K38gQrvUWQ5pfsWfOJ8eSVeaH4JEMXWu6cPe_346yN20PwPjyQUEpSmsrUnXITB9LfKdtvaTyNS0DQ"><div class="flex flex-col"><span class="font-label-lg text-label-lg text-on-surface leading-none font-bold tracking-tight">MedPulse AI</span><span class="font-label-sm text-label-sm text-primary uppercase tracking-wider font-semibold mt-0.5">Calendário</span></div></div><div class="flex items-center gap-space-sm"><div class="flex items-center gap-space-xs"><div class="w-11 h-11 flex items-center justify-center"><img alt="Dra. Isabella Silva" class="w-8 h-8 rounded-full object-cover shadow-[0_0_12px_rgba(107,216,203,0.25)] border border-primary/20" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAaKYBI8_F4mlH53XKTLd8e_FXxUq6HGl7nJfdAtTt0w8Evp_xYd48yv-F3webFdyetSn94dCmcO_5pUDAxM3ED2VT88Mv27OVysUuxuCbA-xTBtgcoILK8LKCEvQ2TTNIwo_8FNqy3l_RqkkQTswUz7S6nkA5caPtDpRGNNKA1AU9iJHEPXnE1lxElEf3C4DPjPOLInD-tj3920zN1tV6_t-Iz0o4kHGwfe__fB2HvLwB3Tyykpm7o"></div></div></div></div></header><main class="flex flex-col relative w-full px-margin pt-16 pb-24 bg-surface flex-grow"><div class="flex flex-col w-full pb-10">
+<div id="page-format" class="page-view  w-full">
+  <div class="max-w-4xl mx-auto px-4 sm:px-6 md:px-8 py-6 w-full flex flex-col">
+<div class="flex flex-col w-full max-w-md mx-auto pb-10">
 <!-- Stepper & Indicator -->
 <div class="flex flex-col gap-space-xs mb-space-md">
 <div class="flex items-center justify-between">
@@ -1754,14 +1753,14 @@ tailwind.config = {
       summaryText.textContent = "Stories (9:16 tela cheia)";
     }
   }
-</script></main><nav class="fixed bottom-0 w-full z-50 pb-safe bg-surface-container-lowest/90 backdrop-blur-xl shadow-[0_1px_8px_rgba(0,0,0,0.04)]" data-active-classes="text-primary"><div class="flex justify-around items-center h-16 px-space-xs"><a class="flex flex-col items-center justify-center gap-space-xs min-w-[64px] min-h-[44px] text-on-surface-variant hover:text-on-surface transition-colors" data-path="dashboard" href="#"><span class="material-symbols-outlined text-[22px]">space_dashboard</span><span class="font-label-sm text-label-sm">Dashboard</span></a><a class="flex flex-col items-center justify-center gap-space-xs min-w-[64px] min-h-[44px] text-on-surface-variant hover:text-on-surface transition-colors" data-path="gerador-ia" href="#"><span class="material-symbols-outlined text-[22px]">auto_awesome</span><span class="font-label-sm text-label-sm">Gerador IA</span></a><a class="flex flex-col items-center justify-center gap-space-xs min-w-[64px] min-h-[44px] text-on-surface-variant hover:text-on-surface transition-colors" data-path="calendario" href="#"><span class="material-symbols-outlined text-[22px]">calendar_month</span><span class="font-label-sm text-label-sm">Calendário</span></a><a class="flex flex-col items-center justify-center gap-space-xs min-w-[64px] min-h-[44px] text-on-surface-variant hover:text-on-surface transition-colors" data-path="relatorios" href="#"><span class="material-symbols-outlined text-[22px]">analytics</span><span class="font-label-sm text-label-sm">Relatórios</span></a></div></nav>
-
-
+</script>
+  </div>
 </div>
 
 <!-- SECTION 7: objective -->
-<div id="page-objective" class="page-view ">
-<header class="fixed top-0 w-full z-50 bg-surface/85 backdrop-blur-xl pt-safe"><div class="h-16 px-margin flex items-center justify-between"><div class="flex items-center gap-space-sm"><img alt="MedPulse AI Logo" class="h-8 w-auto object-contain" src="https://lh3.googleusercontent.com/aida/AEtjO1W7CgRYs8Ux-xQg_uIrfX0XVeshreLVKzt5x7mB_1LZ3a2rcgx9nE8N31-zOAaFpILntGAr0GDSmKqzQ0S-F61U-_vER0dQWtiWT3JoI8HM8OgUlz1Q2G8upgyLRr1aSs_jI8qarjfWOSFgxv7tJMs6CC8vdNbNAKKqWCMoc_wC9K38gQrvUWQ5pfsWfOJ8eSVeaH4JEMXWu6cPe_346yN20PwPjyQUEpSmsrUnXITB9LfKdtvaTyNS0DQ"><div class="flex flex-col"><span class="font-label-lg text-label-lg text-on-surface leading-none font-bold tracking-tight">MedPulse AI</span><span class="font-label-sm text-label-sm text-primary uppercase tracking-wider font-semibold mt-0.5">Calendário</span></div></div><div class="flex items-center gap-space-sm"><div class="flex items-center gap-space-xs"><div class="w-11 h-11 flex items-center justify-center"><img alt="Dra. Isabella Silva" class="w-8 h-8 rounded-full object-cover shadow-[0_0_12px_rgba(107,216,203,0.25)] border border-primary/20" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAaKYBI8_F4mlH53XKTLd8e_FXxUq6HGl7nJfdAtTt0w8Evp_xYd48yv-F3webFdyetSn94dCmcO_5pUDAxM3ED2VT88Mv27OVysUuxuCbA-xTBtgcoILK8LKCEvQ2TTNIwo_8FNqy3l_RqkkQTswUz7S6nkA5caPtDpRGNNKA1AU9iJHEPXnE1lxElEf3C4DPjPOLInD-tj3920zN1tV6_t-Iz0o4kHGwfe__fB2HvLwB3Tyykpm7o"></div></div></div></div></header><main class="flex flex-col relative w-full px-margin pt-16 pb-24 bg-surface flex-grow"><div class="flex flex-col w-full pb-32">
+<div id="page-objective" class="page-view  w-full">
+  <div class="max-w-4xl mx-auto px-4 sm:px-6 md:px-8 py-6 w-full flex flex-col">
+<div class="flex flex-col w-full max-w-md mx-auto pb-32">
 <!-- Progress Header -->
 <div class="flex flex-col gap-space-xs mb-space-md">
 <div class="flex items-center justify-between">
@@ -2102,14 +2101,14 @@ tailwind.config = {
       });
     });
   })();
-</script></main><nav class="fixed bottom-0 w-full z-50 pb-safe bg-surface-container-lowest/90 backdrop-blur-xl shadow-[0_1px_8px_rgba(0,0,0,0.04)]" data-active-classes="text-primary"><div class="flex justify-around items-center h-16 px-space-xs"><a class="flex flex-col items-center justify-center gap-space-xs min-w-[64px] min-h-[44px] text-on-surface-variant hover:text-on-surface transition-colors" data-path="dashboard" href="#"><span class="material-symbols-outlined text-[22px]">space_dashboard</span><span class="font-label-sm text-label-sm">Dashboard</span></a><a class="flex flex-col items-center justify-center gap-space-xs min-w-[64px] min-h-[44px] text-on-surface-variant hover:text-on-surface transition-colors" data-path="gerador-ia" href="#"><span class="material-symbols-outlined text-[22px]">auto_awesome</span><span class="font-label-sm text-label-sm">Gerador IA</span></a><a class="flex flex-col items-center justify-center gap-space-xs min-w-[64px] min-h-[44px] text-on-surface-variant hover:text-on-surface transition-colors" data-path="calendario" href="#"><span class="material-symbols-outlined text-[22px]">calendar_month</span><span class="font-label-sm text-label-sm">Calendário</span></a><a class="flex flex-col items-center justify-center gap-space-xs min-w-[64px] min-h-[44px] text-on-surface-variant hover:text-on-surface transition-colors" data-path="relatorios" href="#"><span class="material-symbols-outlined text-[22px]">analytics</span><span class="font-label-sm text-label-sm">Relatórios</span></a></div></nav>
-
-
+</script>
+  </div>
 </div>
 
 <!-- SECTION 8: weekly -->
-<div id="page-weekly" class="page-view ">
-<header class="fixed top-0 w-full z-50 bg-surface/85 backdrop-blur-xl pt-safe"><div class="h-16 px-margin flex items-center justify-between"><div class="flex items-center gap-space-sm"><img alt="MedPulse AI Logo" class="h-8 w-auto object-contain" src="https://lh3.googleusercontent.com/aida/AEtjO1W7CgRYs8Ux-xQg_uIrfX0XVeshreLVKzt5x7mB_1LZ3a2rcgx9nE8N31-zOAaFpILntGAr0GDSmKqzQ0S-F61U-_vER0dQWtiWT3JoI8HM8OgUlz1Q2G8upgyLRr1aSs_jI8qarjfWOSFgxv7tJMs6CC8vdNbNAKKqWCMoc_wC9K38gQrvUWQ5pfsWfOJ8eSVeaH4JEMXWu6cPe_346yN20PwPjyQUEpSmsrUnXITB9LfKdtvaTyNS0DQ"><div class="flex flex-col"><span class="font-label-lg text-label-lg text-on-surface leading-none font-bold tracking-tight">MedPulse AI</span><span class="font-label-sm text-label-sm text-primary uppercase tracking-wider font-semibold mt-0.5">Calendário</span></div></div><div class="flex items-center gap-space-sm"><div class="flex items-center gap-space-xs"><div class="w-11 h-11 flex items-center justify-center"><img alt="Dra. Isabella Silva" class="w-8 h-8 rounded-full object-cover shadow-[0_0_12px_rgba(107,216,203,0.25)] border border-primary/20" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAaKYBI8_F4mlH53XKTLd8e_FXxUq6HGl7nJfdAtTt0w8Evp_xYd48yv-F3webFdyetSn94dCmcO_5pUDAxM3ED2VT88Mv27OVysUuxuCbA-xTBtgcoILK8LKCEvQ2TTNIwo_8FNqy3l_RqkkQTswUz7S6nkA5caPtDpRGNNKA1AU9iJHEPXnE1lxElEf3C4DPjPOLInD-tj3920zN1tV6_t-Iz0o4kHGwfe__fB2HvLwB3Tyykpm7o"></div></div></div></div></header><main class="flex flex-col relative w-full px-margin pt-16 pb-24 bg-surface flex-grow"><div class="flex flex-col w-full gap-space-lg">
+<div id="page-weekly" class="page-view  w-full">
+  <div class="max-w-4xl mx-auto px-4 sm:px-6 md:px-8 py-6 w-full flex flex-col">
+<div class="flex flex-col w-full max-w-md mx-auto gap-space-lg">
 <!-- STEP PROGRESSION HEADER -->
 <div class="flex flex-col gap-space-sm bg-surface-container-low p-space-md rounded-xl shadow-md">
 <div class="flex items-center justify-between">
@@ -2448,14 +2447,14 @@ tailwind.config = {
       btn.disabled = false;
     }, 2000);
   }
-</script></main><nav class="fixed bottom-0 w-full z-50 pb-safe bg-surface-container-lowest/90 backdrop-blur-xl shadow-[0_1px_8px_rgba(0,0,0,0.04)]" data-active-classes="text-primary"><div class="flex justify-around items-center h-16 px-space-xs"><a class="flex flex-col items-center justify-center gap-space-xs min-w-[64px] min-h-[44px] text-on-surface-variant hover:text-on-surface transition-colors" data-path="dashboard" href="#"><span class="material-symbols-outlined text-[22px]">space_dashboard</span><span class="font-label-sm text-label-sm">Dashboard</span></a><a class="flex flex-col items-center justify-center gap-space-xs min-w-[64px] min-h-[44px] text-on-surface-variant hover:text-on-surface transition-colors" data-path="gerador-ia" href="#"><span class="material-symbols-outlined text-[22px]">auto_awesome</span><span class="font-label-sm text-label-sm">Gerador IA</span></a><a class="flex flex-col items-center justify-center gap-space-xs min-w-[64px] min-h-[44px] text-on-surface-variant hover:text-on-surface transition-colors" data-path="calendario" href="#"><span class="material-symbols-outlined text-[22px]">calendar_month</span><span class="font-label-sm text-label-sm">Calendário</span></a><a class="flex flex-col items-center justify-center gap-space-xs min-w-[64px] min-h-[44px] text-on-surface-variant hover:text-on-surface transition-colors" data-path="relatorios" href="#"><span class="material-symbols-outlined text-[22px]">analytics</span><span class="font-label-sm text-label-sm">Relatórios</span></a></div></nav>
-
-
+</script>
+  </div>
 </div>
 
 <!-- SECTION 9: media -->
-<div id="page-media" class="page-view ">
-<header class="fixed top-0 w-full z-50 bg-surface/85 backdrop-blur-xl pt-safe"><div class="h-16 px-margin flex items-center justify-between"><div class="flex items-center gap-space-sm"><img alt="MedPulse AI Logo" class="h-8 w-auto object-contain" src="https://lh3.googleusercontent.com/aida/AEtjO1W7CgRYs8Ux-xQg_uIrfX0XVeshreLVKzt5x7mB_1LZ3a2rcgx9nE8N31-zOAaFpILntGAr0GDSmKqzQ0S-F61U-_vER0dQWtiWT3JoI8HM8OgUlz1Q2G8upgyLRr1aSs_jI8qarjfWOSFgxv7tJMs6CC8vdNbNAKKqWCMoc_wC9K38gQrvUWQ5pfsWfOJ8eSVeaH4JEMXWu6cPe_346yN20PwPjyQUEpSmsrUnXITB9LfKdtvaTyNS0DQ"><div class="flex flex-col"><span class="font-label-lg text-label-lg text-on-surface leading-none font-bold tracking-tight">MedPulse AI</span><span class="font-label-sm text-label-sm text-primary uppercase tracking-wider font-semibold mt-0.5">Calendário</span></div></div><div class="flex items-center gap-space-sm"><div class="flex items-center gap-space-xs"><div class="w-11 h-11 flex items-center justify-center"><img alt="Dra. Isabella Silva" class="w-8 h-8 rounded-full object-cover shadow-[0_0_12px_rgba(107,216,203,0.25)] border border-primary/20" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAaKYBI8_F4mlH53XKTLd8e_FXxUq6HGl7nJfdAtTt0w8Evp_xYd48yv-F3webFdyetSn94dCmcO_5pUDAxM3ED2VT88Mv27OVysUuxuCbA-xTBtgcoILK8LKCEvQ2TTNIwo_8FNqy3l_RqkkQTswUz7S6nkA5caPtDpRGNNKA1AU9iJHEPXnE1lxElEf3C4DPjPOLInD-tj3920zN1tV6_t-Iz0o4kHGwfe__fB2HvLwB3Tyykpm7o"></div></div></div></div></header><main class="flex flex-col relative w-full px-margin pt-16 pb-24 bg-surface flex-grow"><div class="flex flex-col w-full gap-space-lg pb-12">
+<div id="page-media" class="page-view  w-full">
+  <div class="max-w-4xl mx-auto px-4 sm:px-6 md:px-8 py-6 w-full flex flex-col">
+<div class="flex flex-col w-full max-w-md mx-auto gap-space-lg pb-12">
 <!-- Stepper & Context Header -->
 <section class="flex flex-col gap-space-sm">
 <div class="flex items-center justify-between">
@@ -2724,14 +2723,14 @@ tailwind.config = {
       btn.innerHTML = '<span class="material-symbols-outlined text-[20px]">check_circle</span><span>Pronto para Revisão!</span>';
     }, 1200);
   }
-</script></main><nav class="fixed bottom-0 w-full z-50 pb-safe bg-surface-container-lowest/90 backdrop-blur-xl shadow-[0_1px_8px_rgba(0,0,0,0.04)]" data-active-classes="text-primary"><div class="flex justify-around items-center h-16 px-space-xs"><a class="flex flex-col items-center justify-center gap-space-xs min-w-[64px] min-h-[44px] text-on-surface-variant hover:text-on-surface transition-colors" data-path="dashboard" href="#"><span class="material-symbols-outlined text-[22px]">space_dashboard</span><span class="font-label-sm text-label-sm">Dashboard</span></a><a class="flex flex-col items-center justify-center gap-space-xs min-w-[64px] min-h-[44px] text-on-surface-variant hover:text-on-surface transition-colors" data-path="gerador-ia" href="#"><span class="material-symbols-outlined text-[22px]">auto_awesome</span><span class="font-label-sm text-label-sm">Gerador IA</span></a><a class="flex flex-col items-center justify-center gap-space-xs min-w-[64px] min-h-[44px] text-on-surface-variant hover:text-on-surface transition-colors" data-path="calendario" href="#"><span class="material-symbols-outlined text-[22px]">calendar_month</span><span class="font-label-sm text-label-sm">Calendário</span></a><a class="flex flex-col items-center justify-center gap-space-xs min-w-[64px] min-h-[44px] text-on-surface-variant hover:text-on-surface transition-colors" data-path="relatorios" href="#"><span class="material-symbols-outlined text-[22px]">analytics</span><span class="font-label-sm text-label-sm">Relatórios</span></a></div></nav>
-
-
+</script>
+  </div>
 </div>
 
 <!-- SECTION 10: preview -->
-<div id="page-preview" class="page-view ">
-<header class="fixed top-0 w-full z-50 bg-surface/85 backdrop-blur-xl pt-safe"><div class="h-16 px-margin flex items-center justify-between"><div class="flex items-center gap-space-sm"><img alt="MedPulse AI Logo" class="h-8 w-auto object-contain" src="https://lh3.googleusercontent.com/aida/AEtjO1W7CgRYs8Ux-xQg_uIrfX0XVeshreLVKzt5x7mB_1LZ3a2rcgx9nE8N31-zOAaFpILntGAr0GDSmKqzQ0S-F61U-_vER0dQWtiWT3JoI8HM8OgUlz1Q2G8upgyLRr1aSs_jI8qarjfWOSFgxv7tJMs6CC8vdNbNAKKqWCMoc_wC9K38gQrvUWQ5pfsWfOJ8eSVeaH4JEMXWu6cPe_346yN20PwPjyQUEpSmsrUnXITB9LfKdtvaTyNS0DQ"><div class="flex flex-col"><span class="font-label-lg text-label-lg text-on-surface leading-none font-bold tracking-tight">MedPulse AI</span><span class="font-label-sm text-label-sm text-primary uppercase tracking-wider font-semibold mt-0.5">Calendário</span></div></div><div class="flex items-center gap-space-sm"><div class="flex items-center gap-space-xs"><div class="w-11 h-11 flex items-center justify-center"><img alt="Dra. Isabella Silva" class="w-8 h-8 rounded-full object-cover shadow-[0_0_12px_rgba(107,216,203,0.25)] border border-primary/20" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAaKYBI8_F4mlH53XKTLd8e_FXxUq6HGl7nJfdAtTt0w8Evp_xYd48yv-F3webFdyetSn94dCmcO_5pUDAxM3ED2VT88Mv27OVysUuxuCbA-xTBtgcoILK8LKCEvQ2TTNIwo_8FNqy3l_RqkkQTswUz7S6nkA5caPtDpRGNNKA1AU9iJHEPXnE1lxElEf3C4DPjPOLInD-tj3920zN1tV6_t-Iz0o4kHGwfe__fB2HvLwB3Tyykpm7o"></div></div></div></div></header><main class="flex flex-col relative w-full px-margin pt-16 pb-24 bg-surface flex-grow"><div class="flex flex-col w-full gap-space-lg">
+<div id="page-preview" class="page-view  w-full">
+  <div class="max-w-4xl mx-auto px-4 sm:px-6 md:px-8 py-6 w-full flex flex-col">
+<div class="flex flex-col w-full max-w-md mx-auto gap-space-lg">
 <!-- Step Header & Progress -->
 <section class="flex flex-col gap-space-sm">
 <div class="flex items-center justify-between">
@@ -3063,14 +3062,14 @@ tailwind.config = {
       }
     });
   }
-</script></main><nav class="fixed bottom-0 w-full z-50 pb-safe bg-surface-container-lowest/90 backdrop-blur-xl shadow-[0_1px_8px_rgba(0,0,0,0.04)]" data-active-classes="text-primary"><div class="flex justify-around items-center h-16 px-space-xs"><a class="flex flex-col items-center justify-center gap-space-xs min-w-[64px] min-h-[44px] text-on-surface-variant hover:text-on-surface transition-colors" data-path="dashboard" href="#"><span class="material-symbols-outlined text-[22px]">space_dashboard</span><span class="font-label-sm text-label-sm">Dashboard</span></a><a class="flex flex-col items-center justify-center gap-space-xs min-w-[64px] min-h-[44px] text-on-surface-variant hover:text-on-surface transition-colors" data-path="gerador-ia" href="#"><span class="material-symbols-outlined text-[22px]">auto_awesome</span><span class="font-label-sm text-label-sm">Gerador IA</span></a><a class="flex flex-col items-center justify-center gap-space-xs min-w-[64px] min-h-[44px] text-on-surface-variant hover:text-on-surface transition-colors" data-path="calendario" href="#"><span class="material-symbols-outlined text-[22px]">calendar_month</span><span class="font-label-sm text-label-sm">Calendário</span></a><a class="flex flex-col items-center justify-center gap-space-xs min-w-[64px] min-h-[44px] text-on-surface-variant hover:text-on-surface transition-colors" data-path="relatorios" href="#"><span class="material-symbols-outlined text-[22px]">analytics</span><span class="font-label-sm text-label-sm">Relatórios</span></a></div></nav>
-
-
+</script>
+  </div>
 </div>
 
 <!-- SECTION 11: generated -->
-<div id="page-generated" class="page-view ">
-<header class="fixed top-0 w-full z-50 bg-surface/85 backdrop-blur-xl pt-safe"><div class="h-16 px-margin flex items-center justify-between"><div class="flex items-center gap-space-sm"><img alt="MedPulse AI Logo" class="h-8 w-auto object-contain" src="https://lh3.googleusercontent.com/aida/AEtjO1W7CgRYs8Ux-xQg_uIrfX0XVeshreLVKzt5x7mB_1LZ3a2rcgx9nE8N31-zOAaFpILntGAr0GDSmKqzQ0S-F61U-_vER0dQWtiWT3JoI8HM8OgUlz1Q2G8upgyLRr1aSs_jI8qarjfWOSFgxv7tJMs6CC8vdNbNAKKqWCMoc_wC9K38gQrvUWQ5pfsWfOJ8eSVeaH4JEMXWu6cPe_346yN20PwPjyQUEpSmsrUnXITB9LfKdtvaTyNS0DQ"><div class="flex flex-col"><span class="font-label-lg text-label-lg text-on-surface leading-none font-bold tracking-tight">MedPulse AI</span><span class="font-label-sm text-label-sm text-primary uppercase tracking-wider font-semibold mt-0.5">Calendário</span></div></div><div class="flex items-center gap-space-sm"><div class="flex items-center gap-space-xs"><div class="w-11 h-11 flex items-center justify-center"><img alt="Dra. Isabella Silva" class="w-8 h-8 rounded-full object-cover shadow-[0_0_12px_rgba(107,216,203,0.25)] border border-primary/20" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAaKYBI8_F4mlH53XKTLd8e_FXxUq6HGl7nJfdAtTt0w8Evp_xYd48yv-F3webFdyetSn94dCmcO_5pUDAxM3ED2VT88Mv27OVysUuxuCbA-xTBtgcoILK8LKCEvQ2TTNIwo_8FNqy3l_RqkkQTswUz7S6nkA5caPtDpRGNNKA1AU9iJHEPXnE1lxElEf3C4DPjPOLInD-tj3920zN1tV6_t-Iz0o4kHGwfe__fB2HvLwB3Tyykpm7o"></div></div></div></div></header><main class="flex flex-col relative w-full px-margin pt-16 pb-24 bg-surface flex-grow"><div class="flex flex-col w-full gap-space-lg pb-12">
+<div id="page-generated" class="page-view  w-full">
+  <div class="max-w-4xl mx-auto px-4 sm:px-6 md:px-8 py-6 w-full flex flex-col">
+<div class="flex flex-col w-full max-w-md mx-auto gap-space-lg pb-12">
 <!-- Progress Header & Context Flow -->
 <div class="flex flex-col gap-space-sm">
 <div class="flex items-center justify-between"><div class="flex items-center gap-space-xs"><span class="font-label-sm text-label-sm text-primary uppercase tracking-wider font-bold">Etapa 6 de 6</span><span class="text-outline-variant font-label-sm">•</span><span class="font-label-sm text-label-sm text-on-surface-variant uppercase tracking-wider font-semibold">Conteúdo Pronto &amp; Roteiro IA</span></div><div class="flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-surface-container-high shadow-sm"><span class="w-2 h-2 rounded-full bg-primary animate-pulse"></span><span class="font-label-sm text-label-sm text-primary font-bold">100% Concluído</span></div></div>
@@ -3477,14 +3476,14 @@ tailwind.config = {
       }, 2600);
     }
   </script>
-</div></main><nav class="fixed bottom-0 w-full z-50 pb-safe bg-surface-container-lowest/90 backdrop-blur-xl shadow-[0_1px_8px_rgba(0,0,0,0.04)]" data-active-classes="text-primary"><div class="flex justify-around items-center h-16 px-space-xs"><a class="flex flex-col items-center justify-center gap-space-xs min-w-[64px] min-h-[44px] text-on-surface-variant hover:text-on-surface transition-colors" data-path="dashboard" href="#"><span class="material-symbols-outlined text-[22px]">space_dashboard</span><span class="font-label-sm text-label-sm">Dashboard</span></a><a class="flex flex-col items-center justify-center gap-space-xs min-w-[64px] min-h-[44px] text-on-surface-variant hover:text-on-surface transition-colors" data-path="gerador-ia" href="#"><span class="material-symbols-outlined text-[22px]">auto_awesome</span><span class="font-label-sm text-label-sm">Gerador IA</span></a><a class="flex flex-col items-center justify-center gap-space-xs min-w-[64px] min-h-[44px] text-on-surface-variant hover:text-on-surface transition-colors" data-path="calendario" href="#"><span class="material-symbols-outlined text-[22px]">calendar_month</span><span class="font-label-sm text-label-sm">Calendário</span></a><a class="flex flex-col items-center justify-center gap-space-xs min-w-[64px] min-h-[44px] text-on-surface-variant hover:text-on-surface transition-colors" data-path="relatorios" href="#"><span class="material-symbols-outlined text-[22px]">analytics</span><span class="font-label-sm text-label-sm">Relatórios</span></a></div></nav>
-
-
+</div>
+  </div>
 </div>
 
 <!-- SECTION 12: stories-detail -->
-<div id="page-stories-detail" class="page-view ">
-<header class="fixed top-0 w-full z-50 bg-surface/85 backdrop-blur-xl pt-safe"><div class="h-16 px-margin flex items-center justify-between"><div class="flex items-center gap-space-sm"><img alt="MedPulse AI Logo" class="h-8 w-auto object-contain" src="https://lh3.googleusercontent.com/aida/AEtjO1W7CgRYs8Ux-xQg_uIrfX0XVeshreLVKzt5x7mB_1LZ3a2rcgx9nE8N31-zOAaFpILntGAr0GDSmKqzQ0S-F61U-_vER0dQWtiWT3JoI8HM8OgUlz1Q2G8upgyLRr1aSs_jI8qarjfWOSFgxv7tJMs6CC8vdNbNAKKqWCMoc_wC9K38gQrvUWQ5pfsWfOJ8eSVeaH4JEMXWu6cPe_346yN20PwPjyQUEpSmsrUnXITB9LfKdtvaTyNS0DQ"/><div class="flex flex-col"><span class="font-label-lg text-label-lg text-on-surface leading-none font-bold tracking-tight">MedPulse AI</span><span class="font-label-sm text-label-sm text-primary uppercase tracking-wider font-semibold mt-0.5">Calendário</span></div></div><div class="flex items-center gap-space-sm"><div class="flex items-center gap-space-xs"><div class="w-11 h-11 flex items-center justify-center"><img alt="Dra. Isabella Silva" class="w-8 h-8 rounded-full object-cover shadow-[0_0_12px_rgba(107,216,203,0.25)] border border-primary/20" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAaKYBI8_F4mlH53XKTLd8e_FXxUq6HGl7nJfdAtTt0w8Evp_xYd48yv-F3webFdyetSn94dCmcO_5pUDAxM3ED2VT88Mv27OVysUuxuCbA-xTBtgcoILK8LKCEvQ2TTNIwo_8FNqy3l_RqkkQTswUz7S6nkA5caPtDpRGNNKA1AU9iJHEPXnE1lxElEf3C4DPjPOLInD-tj3920zN1tV6_t-Iz0o4kHGwfe__fB2HvLwB3Tyykpm7o"/></div></div></div></div></header><main class="flex flex-col relative w-full px-margin pt-16 pb-24 bg-surface flex-grow"><div class="flex flex-col w-full space-y-space-lg">
+<div id="page-stories-detail" class="page-view  w-full">
+  <div class="max-w-4xl mx-auto px-4 sm:px-6 md:px-8 py-6 w-full flex flex-col">
+<div class="flex flex-col w-full max-w-md mx-auto space-y-space-lg">
 <!-- Stepper & Top Context Header -->
 <div class="flex flex-col space-y-space-sm">
 <div class="flex items-center justify-between">
@@ -3849,12 +3848,14 @@ Médica Dermatologista • CRM 142.890/SP • RQE 89.201</pre>
       setTimeout(() => icon.classList.remove('rotate-180'), 300);
     }
   }
-</script></main><nav class="fixed bottom-0 w-full z-50 pb-safe bg-surface-container-lowest/90 backdrop-blur-xl shadow-[0_1px_8px_rgba(0,0,0,0.04)]" data-active-classes="text-primary"><div class="flex justify-around items-center h-16 px-space-xs"><a class="flex flex-col items-center justify-center gap-space-xs min-w-[64px] min-h-[44px] text-on-surface-variant hover:text-on-surface transition-colors" data-path="dashboard" href="#"><span class="material-symbols-outlined text-[22px]">space_dashboard</span><span class="font-label-sm text-label-sm">Dashboard</span></a><a class="flex flex-col items-center justify-center gap-space-xs min-w-[64px] min-h-[44px] text-on-surface-variant hover:text-on-surface transition-colors" data-path="gerador-ia" href="#"><span class="material-symbols-outlined text-[22px]">auto_awesome</span><span class="font-label-sm text-label-sm">Gerador IA</span></a><a class="flex flex-col items-center justify-center gap-space-xs min-w-[64px] min-h-[44px] text-on-surface-variant hover:text-on-surface transition-colors" data-path="calendario" href="#"><span class="material-symbols-outlined text-[22px]">calendar_month</span><span class="font-label-sm text-label-sm">Calendário</span></a><a class="flex flex-col items-center justify-center gap-space-xs min-w-[64px] min-h-[44px] text-on-surface-variant hover:text-on-surface transition-colors" data-path="relatorios" href="#"><span class="material-symbols-outlined text-[22px]">analytics</span><span class="font-label-sm text-label-sm">Relatórios</span></a></div></nav>
+</script>
+  </div>
 </div>
 
 <!-- SECTION 13: final-export -->
-<div id="page-final-export" class="page-view ">
-<header class="fixed top-0 w-full z-50 bg-surface/85 backdrop-blur-xl pt-safe"><div class="h-16 px-margin flex items-center justify-between"><div class="flex items-center gap-space-sm"><img alt="MedPulse AI Logo" class="h-8 w-auto object-contain" src="https://lh3.googleusercontent.com/aida/AEtjO1W7CgRYs8Ux-xQg_uIrfX0XVeshreLVKzt5x7mB_1LZ3a2rcgx9nE8N31-zOAaFpILntGAr0GDSmKqzQ0S-F61U-_vER0dQWtiWT3JoI8HM8OgUlz1Q2G8upgyLRr1aSs_jI8qarjfWOSFgxv7tJMs6CC8vdNbNAKKqWCMoc_wC9K38gQrvUWQ5pfsWfOJ8eSVeaH4JEMXWu6cPe_346yN20PwPjyQUEpSmsrUnXITB9LfKdtvaTyNS0DQ"><div class="flex flex-col"><span class="font-label-lg text-label-lg text-on-surface leading-none font-bold tracking-tight">MedPulse AI</span><span class="font-label-sm text-label-sm text-primary uppercase tracking-wider font-semibold mt-0.5">Calendário</span></div></div><div class="flex items-center gap-space-sm"><div class="flex items-center gap-space-xs"><div class="w-11 h-11 flex items-center justify-center"><img alt="Dra. Isabella Silva" class="w-8 h-8 rounded-full object-cover shadow-[0_0_12px_rgba(107,216,203,0.25)] border border-primary/20" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAaKYBI8_F4mlH53XKTLd8e_FXxUq6HGl7nJfdAtTt0w8Evp_xYd48yv-F3webFdyetSn94dCmcO_5pUDAxM3ED2VT88Mv27OVysUuxuCbA-xTBtgcoILK8LKCEvQ2TTNIwo_8FNqy3l_RqkkQTswUz7S6nkA5caPtDpRGNNKA1AU9iJHEPXnE1lxElEf3C4DPjPOLInD-tj3920zN1tV6_t-Iz0o4kHGwfe__fB2HvLwB3Tyykpm7o"></div></div></div></div></header><main class="flex flex-col relative w-full px-margin pt-16 pb-24 bg-surface flex-grow"><div class="flex flex-col w-full gap-space-lg">
+<div id="page-final-export" class="page-view  w-full">
+  <div class="max-w-4xl mx-auto px-4 sm:px-6 md:px-8 py-6 w-full flex flex-col">
+<div class="flex flex-col w-full max-w-md mx-auto gap-space-lg">
 <!-- Status & Header Meta Panel -->
 <section class="flex flex-col gap-space-sm">
 <div class="flex items-center justify-between flex-wrap gap-space-xs">
@@ -4190,9 +4191,8 @@ Médica Dermatologista • CRM 142.890/SP • RQE 89.201</pre>
       }
     });
   }
-</script></main><nav class="fixed bottom-0 w-full z-50 pb-safe bg-surface-container-lowest/90 backdrop-blur-xl shadow-[0_1px_8px_rgba(0,0,0,0.04)]" data-active-classes="text-primary"><div class="flex justify-around items-center h-16 px-space-xs"><a class="flex flex-col items-center justify-center gap-space-xs min-w-[64px] min-h-[44px] text-on-surface-variant hover:text-on-surface transition-colors" data-path="dashboard" href="#"><span class="material-symbols-outlined text-[22px]">space_dashboard</span><span class="font-label-sm text-label-sm">Dashboard</span></a><a class="flex flex-col items-center justify-center gap-space-xs min-w-[64px] min-h-[44px] text-on-surface-variant hover:text-on-surface transition-colors" data-path="gerador-ia" href="#"><span class="material-symbols-outlined text-[22px]">auto_awesome</span><span class="font-label-sm text-label-sm">Gerador IA</span></a><a class="flex flex-col items-center justify-center gap-space-xs min-w-[64px] min-h-[44px] text-on-surface-variant hover:text-on-surface transition-colors" data-path="calendario" href="#"><span class="material-symbols-outlined text-[22px]">calendar_month</span><span class="font-label-sm text-label-sm">Calendário</span></a><a class="flex flex-col items-center justify-center gap-space-xs min-w-[64px] min-h-[44px] text-on-surface-variant hover:text-on-surface transition-colors" data-path="relatorios" href="#"><span class="material-symbols-outlined text-[22px]">analytics</span><span class="font-label-sm text-label-sm">Relatórios</span></a></div></nav>
-
-
+</script>
+  </div>
 </div>
 
 </main>
@@ -4202,19 +4202,19 @@ Médica Dermatologista • CRM 142.890/SP • RQE 89.201</pre>
   <div class="max-w-4xl mx-auto flex justify-around items-center h-16 px-4">
     <button onclick="showPage('dashboard')" class="flex flex-col items-center justify-center gap-1 text-on-surface-variant hover:text-primary transition-colors focus:text-primary">
       <span class="material-symbols-outlined text-2xl">space_dashboard</span>
-      <span class="text-[11px] font-semibold">Dashboard</span>
+      <span class="text-[11px] font-semibold hidden sm:block">Dashboard</span>
     </button>
     <button onclick="showPage('format')" class="flex flex-col items-center justify-center gap-1 text-on-surface-variant hover:text-primary transition-colors focus:text-primary">
       <span class="material-symbols-outlined text-2xl">auto_awesome</span>
-      <span class="text-[11px] font-semibold">Gerador IA</span>
+      <span class="text-[11px] font-semibold hidden sm:block">Gerador IA</span>
     </button>
     <button onclick="showPage('calendar')" class="flex flex-col items-center justify-center gap-1 text-on-surface-variant hover:text-primary transition-colors focus:text-primary">
       <span class="material-symbols-outlined text-2xl">calendar_month</span>
-      <span class="text-[11px] font-semibold">Calendário</span>
+      <span class="text-[11px] font-semibold hidden sm:block">Calendário</span>
     </button>
     <button onclick="showPage('meta-connect')" class="flex flex-col items-center justify-center gap-1 text-on-surface-variant hover:text-primary transition-colors focus:text-primary">
       <span class="material-symbols-outlined text-2xl">account_circle</span>
-      <span class="text-[11px] font-semibold">Perfil Instagram</span>
+      <span class="text-[11px] font-semibold hidden sm:block">Perfil Meta</span>
     </button>
   </div>
 </nav>
@@ -4247,7 +4247,7 @@ function toggleTheme() {
   }
 }
 
-// Fetch Profile Live Data from Meta Graph API
+// Fetch Profile Live Data
 async function loadLiveProfile() {
   try {
     const res = await fetch(`${API_BASE}/api/instagram/profile`);
@@ -4255,57 +4255,25 @@ async function loadLiveProfile() {
     if (data.success && data.instagram) {
       const ig = data.instagram;
       const doc = data.doctorProfile;
-      
-      // Update top bar user info
       const topAvatar = document.getElementById('top-user-avatar');
       const topName = document.getElementById('top-user-name');
       const topPill = document.getElementById('top-user-pill');
       
       if (topAvatar && ig.profile_picture_url) topAvatar.src = ig.profile_picture_url;
-      if (topName && doc.name) topName.textContent = doc.name;
+      if (topName && doc.name) topName.textContent = doc.name.split(' ')[0] + ' ' + (doc.name.split(' ')[1]||'');
       if (topPill) topPill.classList.remove('hidden');
 
-      // Update avatar across pages
       document.querySelectorAll('img[alt*="avatar"], img[alt*="foto"], img[src*="photo"]').forEach(img => {
         if (ig.profile_picture_url) img.src = ig.profile_picture_url;
       });
-
-      console.log('✅ Conectado ao Instagram de:', ig.username);
     }
   } catch (err) {
     console.log('Modo offline / local:', err);
   }
 }
 
-// Generate Real Content via Gemini API backend
-async function triggerAiGeneration(topic, specialty) {
-  try {
-    const res = await fetch(`${API_BASE}/api/ai/generate`, {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ topic, specialty })
-    });
-    const data = await res.json();
-    if (data.success && data.result) {
-      return data.result;
-    }
-  } catch (e) {
-    console.error('Erro na API de IA:', e);
-  }
-  return null;
-}
-
 document.addEventListener('DOMContentLoaded', () => {
   loadLiveProfile();
-
-  // Bind login CTA
-  const loginCta = document.getElementById('cta-login');
-  if (loginCta) {
-    loginCta.addEventListener('click', (e) => {
-      e.preventDefault();
-      showPage('meta-connect');
-    });
-  }
 });
 </script>
 </body>

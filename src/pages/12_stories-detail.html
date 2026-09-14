@@ -1,0 +1,366 @@
+<div class="flex flex-col w-full max-w-md mx-auto space-y-space-lg">
+<!-- Stepper & Top Context Header -->
+<div class="flex flex-col space-y-space-sm">
+<div class="flex items-center justify-between">
+<div class="flex items-center space-x-space-xs">
+<span class="w-2 h-2 rounded-full bg-primary animate-pulse"></span>
+<span class="font-label-sm text-label-sm text-primary uppercase tracking-wider">Etapa 7 de 8 • Geração de Conteúdo</span>
+</div>
+<div class="flex items-center space-x-1 px-2.5 py-0.5 rounded-full bg-surface-container-high text-primary">
+<span class="material-symbols-outlined text-[14px]">verified</span>
+<span class="font-label-sm text-label-sm">CFM 2.336/23 100% OK</span>
+</div>
+</div>
+<!-- Badges Row -->
+<div class="flex flex-wrap gap-space-xs pt-0.5">
+<div class="flex items-center gap-1.5 px-3 py-1 rounded-full bg-surface-container-low text-on-surface text-label-sm font-label-sm shadow-sm">
+<span class="material-symbols-outlined text-primary text-[14px]">shield</span>
+<span>Objetivo: <strong class="text-primary font-semibold">Autoridade Médica</strong></span>
+</div>
+<div class="flex items-center gap-1.5 px-3 py-1 rounded-full bg-surface-container-low text-on-surface text-label-sm font-label-sm shadow-sm">
+<span class="material-symbols-outlined text-secondary text-[14px]">wb_sunny</span>
+<span>Tema: <strong class="text-secondary font-semibold">Protetor Solar Diário</strong></span>
+</div>
+<div class="flex items-center gap-1.5 px-3 py-1 rounded-full bg-surface-container-low text-on-surface text-label-sm font-label-sm shadow-sm">
+<span class="material-symbols-outlined text-tertiary text-[14px]">psychology</span>
+<span>Tom: <strong class="text-tertiary font-semibold">Didático &amp; Ético</strong></span>
+</div>
+</div>
+<!-- Format Segmented Control -->
+<div class="grid grid-cols-2 p-1 rounded-xl bg-surface-container-lowest mt-space-xs">
+<button class="flex items-center justify-center gap-2 py-2.5 px-3 rounded-lg bg-surface-container text-primary shadow-sm font-label-md text-label-md transition-all" id="tab-btn-stories" onclick="switchFormat('stories')">
+<span class="material-symbols-outlined text-[18px]">smartphone</span>
+<span>Stories (4 Telas)</span>
+</button>
+<button class="flex items-center justify-center gap-2 py-2.5 px-3 rounded-lg text-on-surface-variant hover:text-on-surface font-label-md text-label-md transition-all" id="tab-btn-feed" onclick="switchFormat('feed')">
+<span class="material-symbols-outlined text-[18px]">view_carousel</span>
+<span>Feed Carrossel</span>
+</button>
+</div>
+</div>
+<!-- SECTION 1: Sequência de Stories (Storytelling Clínico) -->
+<div class="flex flex-col space-y-space-md" id="view-stories">
+<div class="flex items-center justify-between">
+<div class="flex flex-col">
+<span class="font-headline-sm text-headline-sm text-on-surface font-bold">Roteiro para Stories</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant">Sequência de 4 etapas calibrada para retenção e engajamento ético</span>
+</div>
+<span class="px-2 py-1 rounded-lg bg-primary-container/20 text-primary font-label-sm text-label-sm">4 Slides</span>
+</div>
+<!-- Story 1: Gancho -->
+<div class="flex flex-col rounded-xl bg-surface-container p-space-md shadow-md space-y-space-sm relative overflow-hidden">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-2">
+<span class="w-6 h-6 rounded-full bg-primary/20 text-primary flex items-center justify-center text-[12px] font-bold">1</span>
+<span class="font-label-md text-label-md text-on-surface font-semibold">Gancho / Quebra de Padrão</span>
+</div>
+<span class="px-2 py-0.5 rounded-full bg-surface-container-highest text-secondary font-label-sm text-label-sm">Retenção 92%</span>
+</div>
+<div class="rounded-lg bg-surface-container-low p-space-sm">
+<p class="font-body-md text-body-md text-on-surface font-medium leading-relaxed" id="story-1-text">
+          "Você sabia que usar protetor solar apenas em dias ensolarados pode ser um erro silencioso para a sua pele?"
+        </p>
+</div>
+<!-- Sugestão Visual & Interativa -->
+<div class="flex items-center gap-2 text-on-surface-variant font-label-sm text-label-sm">
+<span class="material-symbols-outlined text-tertiary text-[16px]">lightbulb</span>
+<span>Recomendação: Texto sobre foto estética em consultório + Sticker de pergunta sutil</span>
+</div>
+<div class="flex items-center justify-end gap-space-xs pt-space-xs">
+<button class="flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-surface-container-high hover:bg-surface-bright text-on-surface font-label-sm text-label-sm transition-colors" onclick="copySnippet('story-1-text', this)">
+<span class="material-symbols-outlined text-[16px]">content_copy</span>
+<span>Copiar Texto</span>
+</button>
+<button class="flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-surface-container-high hover:bg-surface-bright text-primary font-label-sm text-label-sm transition-colors" onclick="regenerateHook(this)">
+<span class="material-symbols-outlined text-[16px]">autorenew</span>
+<span>Alternar Gancho</span>
+</button>
+</div>
+</div>
+<!-- Story 2: Informação & Educação Médica -->
+<div class="flex flex-col rounded-xl bg-surface-container p-space-md shadow-md space-y-space-sm relative overflow-hidden">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-2">
+<span class="w-6 h-6 rounded-full bg-primary/20 text-primary flex items-center justify-center text-[12px] font-bold">2</span>
+<span class="font-label-md text-label-md text-on-surface font-semibold">Informação &amp; Ciência Médica</span>
+</div>
+<span class="px-2 py-0.5 rounded-full bg-surface-container-highest text-primary font-label-sm text-label-sm">Base CFM</span>
+</div>
+<div class="rounded-lg bg-surface-container-low p-space-sm">
+<p class="font-body-md text-body-md text-on-surface font-medium leading-relaxed" id="story-2-text">
+          "A radiação UVA atravessa nuvens densas e vidros comuns o ano inteiro. Ela penetra a derme profunda, quebrando colágeno e alimentando o melasma mesmo em dias frios, chuvosos ou sob a luz de telas de escritório."
+        </p>
+</div>
+<div class="flex items-center gap-2 text-on-surface-variant font-label-sm text-label-sm">
+<span class="material-symbols-outlined text-secondary text-[16px]">photo_camera</span>
+<span>Elemento: Gráfico explicativo demonstrando camadas da pele (Epiderme vs Derme)</span>
+</div>
+<div class="flex items-center justify-end gap-space-xs pt-space-xs">
+<button class="flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-surface-container-high hover:bg-surface-bright text-on-surface font-label-sm text-label-sm transition-colors" onclick="copySnippet('story-2-text', this)">
+<span class="material-symbols-outlined text-[16px]">content_copy</span>
+<span>Copiar Texto</span>
+</button>
+</div>
+</div>
+<!-- Story 3: Interação & Enquete do Paciente -->
+<div class="flex flex-col rounded-xl bg-surface-container p-space-md shadow-md space-y-space-sm relative overflow-hidden">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-2">
+<span class="w-6 h-6 rounded-full bg-primary/20 text-primary flex items-center justify-center text-[12px] font-bold">3</span>
+<span class="font-label-md text-label-md text-on-surface font-semibold">Interação com Audiência</span>
+</div>
+<span class="px-2 py-0.5 rounded-full bg-tertiary-container/30 text-tertiary font-label-sm text-label-sm font-semibold">+3.4x Alcance</span>
+</div>
+<div class="rounded-lg bg-surface-container-low p-space-sm space-y-space-sm">
+<div class="flex items-center justify-between">
+<span class="font-label-sm text-label-sm text-on-surface-variant uppercase tracking-wider">Pergunta do Sticker</span>
+<span class="material-symbols-outlined text-primary text-[16px]">poll</span>
+</div>
+<p class="font-headline-sm text-headline-sm text-on-surface font-bold text-center py-1" id="story-3-text">
+          "Você costuma reaplicar o protetor solar ao longo do dia?"
+        </p>
+<!-- Simulated Poll Box -->
+<div class="flex flex-col space-y-2 pt-1">
+<div class="w-full bg-surface-container-high rounded-lg p-2.5 flex items-center justify-between">
+<span class="font-label-md text-label-md text-on-surface font-medium">SIM, COM CERTEZA</span>
+<span class="font-label-md text-label-md text-primary font-bold">42%</span>
+</div>
+<div class="w-full bg-surface-container-high rounded-lg p-2.5 flex items-center justify-between">
+<span class="font-label-md text-label-md text-on-surface font-medium">ÀS VEZES / ESQUEÇO</span>
+<span class="font-label-md text-label-md text-tertiary font-bold">58%</span>
+</div>
+</div>
+</div>
+<div class="flex items-center justify-between pt-space-xs">
+<span class="font-body-sm text-body-sm text-on-surface-variant">Sticker oficial do Instagram Stories</span>
+<button class="flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-surface-container-high hover:bg-surface-bright text-on-surface font-label-sm text-label-sm transition-colors" onclick="copySnippet('story-3-text', this)">
+<span class="material-symbols-outlined text-[16px]">content_copy</span>
+<span>Copiar Pergunta</span>
+</button>
+</div>
+</div>
+<!-- Story 4: CTA Ético & Conversão -->
+<div class="flex flex-col rounded-xl bg-surface-container p-space-md shadow-md space-y-space-sm relative overflow-hidden">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-2">
+<span class="w-6 h-6 rounded-full bg-primary/20 text-primary flex items-center justify-center text-[12px] font-bold">4</span>
+<span class="font-label-md text-label-md text-on-surface font-semibold">Conversão Ética &amp; Direcionamento</span>
+</div>
+<span class="px-2 py-0.5 rounded-full bg-primary/20 text-primary font-label-sm text-label-sm">Chamada CFM</span>
+</div>
+<div class="rounded-lg bg-surface-container-low p-space-sm">
+<p class="font-body-md text-body-md text-on-surface font-medium leading-relaxed" id="story-4-text">
+          "Quer saber qual veículo (gel, fluido, toque seco ou com cor) é o mais indicado para o fototipo e fisiologia da sua pele? Envie uma mensagem direta com sua dúvida ou acesse o link no perfil para conversarmos em consulta individualizada."
+        </p>
+</div>
+<div class="flex items-center gap-2 text-on-surface-variant font-label-sm text-label-sm">
+<span class="material-symbols-outlined text-primary text-[16px]">send</span>
+<span>Ação sugerida: Sticker de DM direta ("Envie sua dúvida") ou Sticker com link da bio</span>
+</div>
+<div class="flex items-center justify-end gap-space-xs pt-space-xs">
+<button class="flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-surface-container-high hover:bg-surface-bright text-on-surface font-label-sm text-label-sm transition-colors" onclick="copySnippet('story-4-text', this)">
+<span class="material-symbols-outlined text-[16px]">content_copy</span>
+<span>Copiar Roteiro Completo</span>
+</button>
+</div>
+</div>
+</div>
+<!-- SECTION 2: Conteúdo Completo para Feed (Carrossel / Post) -->
+<div class="hidden flex flex-col space-y-space-md" id="view-feed">
+<div class="flex items-center justify-between">
+<div class="flex flex-col">
+<span class="font-headline-sm text-headline-sm text-on-surface font-bold">Post de Feed (Carrossel Didático)</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant">Carrossel de 3 lâminas com legenda estruturada para alta retenção</span>
+</div>
+<span class="px-2 py-1 rounded-lg bg-secondary-container/20 text-secondary font-label-sm text-label-sm">Formato 4:5</span>
+</div>
+<!-- Título & Gancho do Post -->
+<div class="rounded-xl bg-surface-container p-space-md shadow-md space-y-space-sm">
+<span class="font-label-sm text-label-sm text-primary uppercase font-bold tracking-wider">Título Principal &amp; Gancho Visual</span>
+<h2 class="font-headline-lg-mobile text-headline-lg-mobile text-on-surface font-bold leading-snug">
+        Você ainda comete esses erros ao usar protetor solar?
+      </h2>
+<p class="font-body-md text-body-md text-on-surface-variant italic">
+        "Não é apenas sobre queimar na praia: o verdadeiro risco mora nos dias cinzentos e na falsa sensação de segurança."
+      </p>
+</div>
+<!-- Slides do Carrossel -->
+<div class="flex flex-col space-y-space-sm">
+<span class="font-label-sm text-label-sm text-on-surface-variant uppercase tracking-wider font-semibold">Estrutura das Lâminas do Carrossel</span>
+<!-- Slide 1 -->
+<div class="rounded-xl bg-surface-container p-space-sm flex items-start gap-space-sm shadow-sm">
+<div class="w-10 h-10 rounded-lg bg-primary-container/20 text-primary flex items-center justify-center font-bold text-headline-sm flex-shrink-0">
+          1
+        </div>
+<div class="flex flex-col flex-grow">
+<span class="font-label-md text-label-md text-on-surface font-bold">Quantidade Insuficiente (A Regra dos 3 Dedos)</span>
+<p class="font-body-sm text-body-sm text-on-surface-variant mt-0.5">
+            Aplicar menos que 2mg/cm² reduz o FPS 50 para menos da metade na prática. Mostre a aplicação no comprimento de 3 dedos para rosto e pescoço.
+          </p>
+</div>
+</div>
+<!-- Slide 2 -->
+<div class="rounded-xl bg-surface-container p-space-sm flex items-start gap-space-sm shadow-sm">
+<div class="w-10 h-10 rounded-lg bg-secondary-container/20 text-secondary flex items-center justify-center font-bold text-headline-sm flex-shrink-0">
+          2
+        </div>
+<div class="flex flex-col flex-grow">
+<span class="font-label-md text-label-md text-on-surface font-bold">A Armadilha do Dia Nublado</span>
+<p class="font-body-sm text-body-sm text-on-surface-variant mt-0.5">
+            Nuvens barram até 80% do UVB (queimação), mas deixam passar quase 100% do UVA (fotoenvelhecimento e manchas). O dano celular é cumulativo.
+          </p>
+</div>
+</div>
+<!-- Slide 3 -->
+<div class="rounded-xl bg-surface-container p-space-sm flex items-start gap-space-sm shadow-sm">
+<div class="w-10 h-10 rounded-lg bg-tertiary-container/20 text-tertiary flex items-center justify-center font-bold text-headline-sm flex-shrink-0">
+          3
+        </div>
+<div class="flex flex-col flex-grow">
+<span class="font-label-md text-label-md text-on-surface font-bold">O Poder Oculto do Protetor com Cor</span>
+<p class="font-body-sm text-body-sm text-on-surface-variant mt-0.5">
+            Os pigmentos de óxido de ferro formam uma barreira física insubstituível contra a luz visível emitida por computadores, smartphones e lâmpadas.
+          </p>
+</div>
+</div>
+</div>
+<!-- Legenda Pronta com 1-Click Copy -->
+<div class="flex flex-col rounded-xl bg-surface-container p-space-md shadow-md space-y-space-sm">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-primary text-[20px]">edit_note</span>
+<span class="font-headline-sm text-headline-sm text-on-surface font-bold">Legenda Completa Formatada</span>
+</div>
+<button class="flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-primary text-on-primary font-label-md text-label-md font-semibold transition-all" id="copy-caption-btn" onclick="copyFullCaption()">
+<span class="material-symbols-outlined text-[16px]">copy_all</span>
+<span>Copiar Legenda</span>
+</button>
+</div>
+<div class="rounded-lg bg-surface-container-low p-space-md max-h-72 overflow-y-auto">
+<pre class="font-body-md text-body-md text-on-surface whitespace-pre-wrap font-sans leading-relaxed" id="caption-body">Você ainda comete algum desses erros ao proteger sua pele?
+
+Muitos pacientes chegam ao consultório surpresos com o aparecimento de novas manchas e linhas finas, jurando que "nunca tomam sol". Mas a verdade clínica é outra:
+
+🔹 1. Quantidade negligenciada: Para atingir o FPS descrito no rótulo, é indispensável seguir a regra dos três dedos (rosto, pescoço e colo). Menos que isso reduz drasticamente a proteção real.
+
+🔹 2. Esquecer os dias cinzentos: A radiação UVA não avisa. Ela não esquenta, não causa vermelhidão imediata, mas degrada o colágeno e piora o melasma silenciosamente dia após dia.
+
+🔹 3. Ignorar a luz visível: Se você passa horas diante de monitores ou sob iluminação intensa de escritório, o protetor solar COM COR é sua principal blindagem contra a hiperpigmentação.
+
+Salve este conteúdo para consultar sempre que for repor seus cuidados diários e compartilhe com alguém que ainda acredita que protetor é só para a praia.
+
+A saúde da sua pele começa na constância. 🤍
+
+Dra. Camila Vasconcelos
+Médica Dermatologista • CRM 142.890/SP • RQE 89.201</pre>
+</div>
+<!-- Hashtags Estratégicas -->
+<div class="flex flex-col space-y-1.5 pt-space-xs">
+<div class="flex items-center justify-between">
+<span class="font-label-sm text-label-sm text-on-surface-variant font-bold uppercase tracking-wider">Hashtags Estratégicas</span>
+<button class="font-label-sm text-label-sm text-primary hover:underline" onclick="copySnippet('hashtags-list', this)">Copiar tags</button>
+</div>
+<div class="rounded-lg bg-surface-container-low p-space-sm font-body-sm text-body-sm text-secondary leading-relaxed" id="hashtags-list">
+          #ProtetorSolar #DermatologiaClinica #SkincareComEvidencia #MelasmaTratamento #DraCamilaVasconcelos #SaudeDaPele #Fotoprotecao #DermatologiaSaoPaulo
+        </div>
+</div>
+</div>
+</div>
+<!-- Clinical Quality Review Banner -->
+<div class="flex items-center gap-space-sm p-space-md rounded-xl bg-surface-container-low">
+<div class="w-10 h-10 rounded-full bg-primary/10 flex items-center justify-center flex-shrink-0 text-primary">
+<span class="material-symbols-outlined text-[22px]">gavel</span>
+</div>
+<div class="flex flex-col">
+<span class="font-label-md text-label-md text-on-surface font-bold">Validação Ética Concluída</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant">Linguagem estritamente educativa, sem promessas sensacionalistas ou exposição imprópria conforme Resolução CFM 2.336/2023.</span>
+</div>
+</div>
+<!-- Action Bar / Footer -->
+<div class="flex flex-col space-y-space-sm pt-space-xs pb-safe">
+<div class="grid grid-cols-1 gap-space-xs">
+<button class="w-full h-12 rounded-xl bg-gradient-to-r from-primary-container to-secondary text-on-primary font-label-lg text-label-lg font-bold flex items-center justify-center gap-2 shadow-lg hover:opacity-95 transition-opacity">
+<span class="material-symbols-outlined text-[20px]">calendar_add_on</span>
+<span>Enviar para o Calendário &amp; Agendar</span>
+</button>
+<button class="w-full h-11 rounded-xl bg-surface-container-high text-on-surface hover:bg-surface-bright font-label-md text-label-md font-semibold flex items-center justify-center gap-2 transition-colors">
+<span class="material-symbols-outlined text-[18px]">tune</span>
+<span>Ajustar Tom de Voz ou Detalhes Clínicos</span>
+</button>
+</div>
+<div class="flex items-center justify-center gap-1.5 text-center text-on-surface-variant font-label-sm text-label-sm pt-1">
+<span class="material-symbols-outlined text-primary text-[14px]">sync</span>
+<span>Sincronização direta com Meta Graph API &amp; lembrete de gravação ativado</span>
+</div>
+</div>
+</div>
+<script>
+  function switchFormat(mode) {
+    const storiesView = document.getElementById('view-stories');
+    const feedView = document.getElementById('view-feed');
+    const storiesBtn = document.getElementById('tab-btn-stories');
+    const feedBtn = document.getElementById('tab-btn-feed');
+
+    if (mode === 'stories') {
+      storiesView.classList.remove('hidden');
+      feedView.classList.add('hidden');
+      storiesBtn.className = "flex items-center justify-center gap-2 py-2.5 px-3 rounded-lg bg-surface-container text-primary shadow-sm font-label-md text-label-md transition-all";
+      feedBtn.className = "flex items-center justify-center gap-2 py-2.5 px-3 rounded-lg text-on-surface-variant hover:text-on-surface font-label-md text-label-md transition-all";
+    } else {
+      storiesView.classList.add('hidden');
+      feedView.classList.remove('hidden');
+      feedBtn.className = "flex items-center justify-center gap-2 py-2.5 px-3 rounded-lg bg-surface-container text-primary shadow-sm font-label-md text-label-md transition-all";
+      storiesBtn.className = "flex items-center justify-center gap-2 py-2.5 px-3 rounded-lg text-on-surface-variant hover:text-on-surface font-label-md text-label-md transition-all";
+    }
+  }
+
+  function copySnippet(elementId, btn) {
+    const el = document.getElementById(elementId);
+    if (!el) return;
+    const text = el.innerText || el.textContent;
+    navigator.clipboard.writeText(text).then(() => {
+      const originalHtml = btn.innerHTML;
+      btn.innerHTML = '<span class="material-symbols-outlined text-[16px] text-primary">done</span><span class="text-primary font-bold">Copiado!</span>';
+      setTimeout(() => {
+        btn.innerHTML = originalHtml;
+      }, 1800);
+    });
+  }
+
+  function copyFullCaption() {
+    const captionEl = document.getElementById('caption-body');
+    const btn = document.getElementById('copy-caption-btn');
+    if (!captionEl || !btn) return;
+    navigator.clipboard.writeText(captionEl.innerText).then(() => {
+      const originalHtml = btn.innerHTML;
+      btn.innerHTML = '<span class="material-symbols-outlined text-[16px]">done_all</span><span>Copiado com Sucesso!</span>';
+      setTimeout(() => {
+        btn.innerHTML = originalHtml;
+      }, 2000);
+    });
+  }
+
+  const altHooks = [
+    "\"Você sabia que usar protetor solar apenas em dias ensolarados pode ser um erro silencioso para a sua pele?\"",
+    "\"Se você só aplica protetor solar quando vai à praia ou piscina, este recado clínico é urgente para você.\"",
+    "\"O maior vilão do colágeno não descansa nos dias nublados — e quase ninguém percebe isso a tempo.\""
+  ];
+  let hookIndex = 0;
+
+  function regenerateHook(btn) {
+    hookIndex = (hookIndex + 1) % altHooks.length;
+    const hookText = document.getElementById('story-1-text');
+    if (hookText) {
+      hookText.style.opacity = '0';
+      setTimeout(() => {
+        hookText.textContent = altHooks[hookIndex];
+        hookText.style.opacity = '1';
+      }, 150);
+    }
+    const icon = btn.querySelector('.material-symbols-outlined');
+    if (icon) {
+      icon.classList.add('rotate-180');
+      setTimeout(() => icon.classList.remove('rotate-180'), 300);
+    }
+  }
+</script>

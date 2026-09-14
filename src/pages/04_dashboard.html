@@ -1,0 +1,334 @@
+<div class="flex flex-col w-full gap-space-lg pb-6">
+<!-- Perfil do Instagram Conectado -->
+<div class="flex items-center justify-between p-space-md rounded-xl bg-surface-container-low shadow-sm">
+<div class="flex items-center gap-space-sm min-w-0">
+<div class="relative flex-shrink-0">
+<img class="w-12 h-12 rounded-full object-cover shadow-sm" data-alt="Close-up portrait of Dra. Camila Vasconcelos, Brazilian female dermatologist wearing clinical white coat" src="https://lh3.googleusercontent.com/aida-public/AB6AXuC5a8z1hQgdmgBJsVj8f6N0SOck3aKW85Id1ji08nTFPL-RrGZm8kiqfKUfGAeatMKhVxHbSfgn-NWwBRJbKfri_J9ug99-oyMlVn40KUL0LcdukyD6XhpBSCUWKCqCnGeOKLcSpPttWkqEaCyt25welXTR-gmwTUumui4fE6IMDty7-QlpEXbAw0V8lVKpREMhgeMeXu99YoWsSKSc3FbbcDgSeH7IGRYh_ZMVJrE-bPdQ7DQEwYrG">
+<span class="absolute bottom-0 right-0 w-3.5 h-3.5 rounded-full bg-primary flex items-center justify-center shadow-sm">
+<span class="w-1.5 h-1.5 rounded-full bg-surface-container-lowest"></span>
+</span>
+</div>
+<div class="flex flex-col min-w-0">
+<div class="flex items-center gap-1.5">
+<h2 class="font-headline-sm text-headline-sm text-on-surface truncate">Dra. Camila Vasconcelos</h2>
+<span class="material-symbols-outlined text-secondary text-[16px]" style="font-variation-settings: 'FILL' 1;">verified</span>
+</div>
+<p class="font-label-md text-label-md text-on-surface-variant truncate">@dra.camilavasconcelos • Dermatologia Clínica • CRM 142.890/SP • RQE 89.201</p>
+<div class="flex items-center gap-1 mt-0.5">
+<span class="w-1.5 h-1.5 rounded-full bg-primary animate-pulse"></span>
+<span class="font-label-sm text-label-sm text-primary">Sincronizado há 12 min</span>
+</div>
+</div>
+</div>
+<button class="flex items-center justify-center p-2 rounded-lg bg-surface-container hover:bg-surface-variant text-on-surface-variant transition-colors" title="Atualizar dados do perfil">
+<span class="material-symbols-outlined text-[20px]">sync</span>
+</button>
+</div>
+<!-- Seletor de Período -->
+<div class="flex items-center gap-2 p-1 bg-surface-container-lowest rounded-full self-start">
+<button class="px-4 py-1.5 rounded-full font-label-md text-label-md bg-primary text-on-primary font-semibold shadow-sm transition-all" id="btn-30d" onclick="switchPeriod('30d')">
+      Últimos 30 dias
+    </button>
+<button class="px-4 py-1.5 rounded-full font-label-md text-label-md text-on-surface-variant hover:text-on-surface transition-all" id="btn-90d" onclick="switchPeriod('90d')">
+      Últimos 90 dias
+    </button>
+</div>
+<!-- Grid de 6 KPIs Essenciais -->
+<div class="grid grid-cols-2 gap-space-sm">
+<!-- KPI 1: Seguidores -->
+<div class="flex flex-col justify-between p-space-md rounded-xl bg-surface-container-low shadow-sm relative overflow-hidden">
+<div class="flex items-center justify-between">
+<span class="font-label-sm text-label-sm text-on-surface-variant uppercase tracking-wider">Seguidores</span>
+<span class="px-1.5 py-0.5 rounded font-label-sm text-label-sm bg-primary/10 text-primary">+6,1%</span>
+</div>
+<div class="my-2">
+<span class="font-display-lg-mobile text-display-lg-mobile text-on-surface font-bold">24.850</span>
+<p class="font-label-sm text-label-sm text-primary flex items-center gap-0.5 mt-0.5">
+<span class="material-symbols-outlined text-[14px]">arrow_upward</span> +1.420 no mês
+        </p>
+</div>
+<!-- Mini Sparkline SVG -->
+<svg class="w-full h-7 text-primary" fill="none" preserveAspectRatio="none" viewBox="0 0 100 24">
+<path d="M0,20 Q20,18 35,14 T70,8 T100,2" stroke="currentColor" stroke-linecap="round" stroke-width="2.2"></path>
+<path d="M0,20 Q20,18 35,14 T70,8 T100,2 L100,24 L0,24 Z" fill="currentColor" fill-opacity="0.12"></path>
+</svg>
+</div>
+<!-- KPI 2: Alcance Total -->
+<div class="flex flex-col justify-between p-space-md rounded-xl bg-surface-container-low shadow-sm relative overflow-hidden">
+<div class="flex items-center justify-between">
+<span class="font-label-sm text-label-sm text-on-surface-variant uppercase tracking-wider">Alcance Total</span>
+<span class="px-1.5 py-0.5 rounded font-label-sm text-label-sm bg-secondary/15 text-secondary">+18,4%</span>
+</div>
+<div class="my-2">
+<span class="font-display-lg-mobile text-display-lg-mobile text-on-surface font-bold">184.2k</span>
+<p class="font-label-sm text-label-sm text-secondary flex items-center gap-0.5 mt-0.5">
+<span class="material-symbols-outlined text-[14px]">visibility</span> contas únicas
+        </p>
+</div>
+<svg class="w-full h-7 text-secondary" fill="none" preserveAspectRatio="none" viewBox="0 0 100 24">
+<path d="M0,22 Q25,12 50,15 T75,6 T100,3" stroke="currentColor" stroke-linecap="round" stroke-width="2.2"></path>
+<path d="M0,22 Q25,12 50,15 T75,6 T100,3 L100,24 L0,24 Z" fill="currentColor" fill-opacity="0.12"></path>
+</svg>
+</div>
+<!-- KPI 3: Curtidas & Salvos -->
+<div class="flex flex-col justify-between p-space-md rounded-xl bg-surface-container-low shadow-sm">
+<div class="flex items-center justify-between">
+<span class="font-label-sm text-label-sm text-on-surface-variant uppercase tracking-wider">Curtidas &amp; Salvos</span>
+<span class="material-symbols-outlined text-[16px] text-tertiary">bookmark</span>
+</div>
+<div class="my-2">
+<span class="font-display-lg-mobile text-display-lg-mobile text-on-surface font-bold">14.390</span>
+<p class="font-label-sm text-label-sm text-on-surface-variant mt-0.5">Interações registradas</p>
+</div>
+<div class="w-full bg-surface-container rounded-full h-1.5 overflow-hidden">
+<div class="bg-tertiary h-full rounded-full" style="width: 74%;"></div>
+</div>
+</div>
+<!-- KPI 4: Comentários -->
+<div class="flex flex-col justify-between p-space-md rounded-xl bg-surface-container-low shadow-sm">
+<div class="flex items-center justify-between">
+<span class="font-label-sm text-label-sm text-on-surface-variant uppercase tracking-wider">Comentários</span>
+<span class="material-symbols-outlined text-[16px] text-primary">chat_bubble</span>
+</div>
+<div class="my-2">
+<span class="font-display-lg-mobile text-display-lg-mobile text-on-surface font-bold">892</span>
+<p class="font-label-sm text-label-sm text-primary mt-0.5">Dúvidas de pacientes</p>
+</div>
+<div class="w-full bg-surface-container rounded-full h-1.5 overflow-hidden">
+<div class="bg-primary h-full rounded-full" style="width: 82%;"></div>
+</div>
+</div>
+<!-- KPI 5: Reels Publicados -->
+<div class="flex flex-col justify-between p-space-md rounded-xl bg-surface-container-low shadow-sm">
+<div class="flex items-center justify-between">
+<span class="font-label-sm text-label-sm text-on-surface-variant uppercase tracking-wider">Reels</span>
+<span class="material-symbols-outlined text-[16px] text-error">slow_motion_video</span>
+</div>
+<div class="my-2">
+<span class="font-display-lg-mobile text-display-lg-mobile text-on-surface font-bold">12</span>
+<p class="font-label-sm text-label-sm text-error mt-0.5">Freq. 2.8x/sem (Abaixo)</p>
+</div>
+<div class="flex items-center gap-1">
+<div class="h-1 flex-1 rounded-full bg-primary"></div>
+<div class="h-1 flex-1 rounded-full bg-primary"></div>
+<div class="h-1 flex-1 rounded-full bg-surface-variant"></div>
+</div>
+</div>
+<!-- KPI 6: Posts & Carrosséis -->
+<div class="flex flex-col justify-between p-space-md rounded-xl bg-surface-container-low shadow-sm">
+<div class="flex items-center justify-between">
+<span class="font-label-sm text-label-sm text-on-surface-variant uppercase tracking-wider">Carrosséis</span>
+<span class="material-symbols-outlined text-[16px] text-secondary">view_carousel</span>
+</div>
+<div class="my-2">
+<span class="font-display-lg-mobile text-display-lg-mobile text-on-surface font-bold">18</span>
+<p class="font-label-sm text-label-sm text-secondary mt-0.5">Excelente consistência</p>
+</div>
+<div class="flex items-center gap-1">
+<div class="h-1 flex-1 rounded-full bg-secondary"></div>
+<div class="h-1 flex-1 rounded-full bg-secondary"></div>
+<div class="h-1 flex-1 rounded-full bg-secondary"></div>
+</div>
+</div>
+</div>
+<!-- Evolução dos Últimos 30 Dias -->
+<div class="flex flex-col p-space-md rounded-xl bg-surface-container-low shadow-sm gap-space-sm">
+<div class="flex items-center justify-between">
+<div class="flex flex-col">
+<span class="font-label-sm text-label-sm text-primary uppercase font-bold tracking-wider">Gráfico de Crescimento</span>
+<h3 class="font-headline-sm text-headline-sm text-on-surface">Evolução dos Últimos 30 Dias</h3>
+</div>
+<div class="flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-surface-container text-on-surface-variant font-label-sm text-label-sm">
+<span class="w-2 h-2 rounded-full bg-primary"></span>
+        Seguidores &amp; Leads
+      </div>
+</div>
+<!-- Curva de Crescimento com Eixos Discretos -->
+<div class="relative w-full h-36 mt-2 flex flex-col justify-end">
+<svg class="w-full h-28 overflow-visible" fill="none" preserveAspectRatio="none" viewBox="0 0 320 100">
+<defs>
+<linearGradient id="chartGradient" x1="0" x2="0" y1="0" y2="1">
+<stop offset="0%" stop-color="#6bd8cb" stop-opacity="0.32"></stop>
+<stop offset="100%" stop-color="#6bd8cb" stop-opacity="0.0"></stop>
+</linearGradient>
+</defs>
+<!-- Linhas guias de fundo -->
+<line stroke="#242a38" stroke-dasharray="3 3" stroke-width="1" x1="0" x2="320" y1="20" y2="20"></line>
+<line stroke="#242a38" stroke-dasharray="3 3" stroke-width="1" x1="0" x2="320" y1="55" y2="55"></line>
+<line stroke="#242a38" stroke-width="1" x1="0" x2="320" y1="90" y2="90"></line>
+<!-- Curva Preenchida -->
+<path d="M0,82 C40,80 70,68 110,62 C150,56 180,48 220,32 C260,20 290,14 320,6 L320,95 L0,95 Z" fill="url(#chartGradient)"></path>
+<!-- Linha do Traço -->
+<path d="M0,82 C40,80 70,68 110,62 C150,56 180,48 220,32 C260,20 290,14 320,6" stroke="#6bd8cb" stroke-linecap="round" stroke-width="3"></path>
+<!-- Ponto focal atual -->
+<circle class="shadow-md" cx="320" cy="6" fill="#6bd8cb" r="4.5"></circle>
+<circle cx="320" cy="6" fill="#6bd8cb" fill-opacity="0.25" r="8"></circle>
+</svg>
+<div class="flex justify-between items-center text-on-surface-variant font-label-sm text-label-sm pt-2">
+<span class="">01 Abr</span>
+<span class="">10 Abr</span>
+<span class="">20 Abr</span>
+<span class="text-primary font-bold">Hoje</span>
+</div>
+</div>
+</div>
+<!-- SEÇÃO PRINCIPAL DE IA: Diagnóstico de Desempenho -->
+<div class="flex flex-col gap-space-sm">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-primary text-[22px]">psychology</span>
+<h3 class="font-headline-sm text-headline-sm text-on-surface">Diagnóstico</h3>
+</div>
+<span class="px-2 py-0.5 rounded-full bg-primary/10 text-primary font-label-sm text-label-sm font-semibold">Auditoria Contínua</span>
+</div>
+<!-- Diagnóstico Semáforo Estilizado -->
+<div class="flex flex-col gap-space-sm">
+<!-- Ponto Vermelho (Atenção Crítica) -->
+<div class="p-space-md rounded-xl bg-surface-container-low shadow-sm flex items-start gap-3.5">
+<div class="flex-shrink-0 w-8 h-8 rounded-full bg-error/15 flex items-center justify-center mt-0.5">
+<span class="w-3 h-3 rounded-full bg-error animate-ping absolute"></span>
+<span class="w-2.5 h-2.5 rounded-full bg-error"></span>
+</div>
+<div class="flex flex-col min-w-0">
+<div class="flex items-center gap-2">
+<span class="font-label-lg text-label-lg text-on-surface font-semibold">Baixa frequência (Reels)</span>
+<span class="px-1.5 py-0.2 rounded bg-error-container text-on-error-container font-label-sm text-label-sm">Urgente</span>
+</div>
+<p class="font-body-md text-body-md text-on-surface-variant mt-1">
+            Apenas <strong>2 Reels em 14 dias</strong>. Aumente para 3x/semana para <span class="text-secondary font-semibold">3.4x mais alcance</span> na sua cidade.
+          </p>
+</div>
+</div>
+<!-- Ponto Amarelo (Oportunidade de Melhoria) -->
+<div class="p-space-md rounded-xl bg-surface-container-low shadow-sm flex items-start gap-3.5">
+<div class="flex-shrink-0 w-8 h-8 rounded-full bg-tertiary/15 flex items-center justify-center mt-0.5">
+<span class="w-2.5 h-2.5 rounded-full bg-tertiary"></span>
+</div>
+<div class="flex flex-col min-w-0">
+<div class="flex items-center gap-2">
+<span class="font-label-lg text-label-lg text-on-surface font-semibold">Falta de conteúdo educativo</span>
+<span class="px-1.5 py-0.2 rounded bg-tertiary-container/30 text-tertiary font-label-sm text-label-sm">Alerta</span>
+</div>
+<p class="font-body-md text-body-md text-on-surface-variant mt-1">
+            Foco excessivo em bastidores. Pacientes convertem mais ao entender mitos e tratamentos.
+          </p>
+</div>
+</div>
+<!-- Ponto Verde (Ponto Forte) -->
+<div class="p-space-md rounded-xl bg-surface-container-low shadow-sm flex items-start gap-3.5">
+<div class="flex-shrink-0 w-8 h-8 rounded-full bg-primary/15 flex items-center justify-center mt-0.5">
+<span class="w-2.5 h-2.5 rounded-full bg-primary"></span>
+</div>
+<div class="flex flex-col min-w-0">
+<div class="flex items-center gap-2">
+<span class="font-label-lg text-label-lg text-on-surface font-semibold">Boa retenção (Pessoal)</span>
+<span class="px-1.5 py-0.2 rounded bg-primary/20 text-primary font-label-sm text-label-sm">Destaque</span>
+</div>
+<p class="font-body-md text-body-md text-on-surface-variant mt-1">
+            Fotos humanizadas geraram <strong>2x mais comentários</strong> que imagens de banco.
+          </p>
+</div>
+</div>
+</div>
+</div>
+<!-- SEÇÃO PLANO DE AÇÃO SEMANAL -->
+<div class="flex flex-col p-space-md rounded-xl bg-surface-container-low shadow-sm gap-space-md">
+<div class="flex items-center justify-between">
+<div class="flex flex-col">
+<span class="font-label-sm text-label-sm text-secondary uppercase font-bold tracking-wider">Plano Tático Semanal</span>
+<h3 class="font-headline-sm text-headline-sm text-on-surface">O Que Fazer Esta Semana</h3>
+</div>
+<div class="flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-surface-container-high text-primary font-label-sm text-label-sm font-semibold" id="checklist-counter">
+        1/4 concluídos
+      </div>
+</div>
+<!-- Barra de progresso -->
+<div class="w-full bg-surface-container rounded-full h-1.5 overflow-hidden">
+<div class="bg-primary h-full rounded-full transition-all duration-300" id="checklist-progress-bar" style="width: 25%;"></div>
+</div>
+<!-- Checklist Interativo -->
+<div class="flex flex-col gap-space-sm" id="action-checklist">
+<!-- Item 1 (Com CTA inteligente de Roteiro) -->
+<div class="flex flex-col p-space-sm rounded-lg bg-surface-container gap-2 transition-colors">
+<div class="flex items-start justify-between gap-3">
+<label class="flex items-start gap-3 cursor-pointer select-none min-w-0">
+<input class="w-5 h-5 rounded mt-0.5 accent-primary cursor-pointer" onchange="toggleTask(this)" type="checkbox">
+<div class="flex flex-col min-w-0">
+<span class="font-label-lg text-label-lg text-on-surface font-medium task-title">🎬 3 Reels educativos</span>
+<p class="font-body-sm text-body-sm text-on-surface-variant mt-0.5">Sugestão IA: 'Mitos do Protetor Solar' e 'Botox aos 30 anos'.</p>
+</div>
+</label>
+<button class="flex-shrink-0 px-2.5 py-1 rounded-full bg-primary-container text-on-primary-container hover:bg-primary font-label-sm text-label-sm font-semibold transition-colors flex items-center gap-1" onclick="alert('Gerando roteiro detalhado com IA para Dra. Camila Vasconcelos...')">
+<span class="material-symbols-outlined text-[14px]">auto_awesome</span>
+            Gerar Roteiro
+          </button>
+</div>
+</div>
+<!-- Item 2 -->
+<div class="p-space-sm rounded-lg bg-surface-container transition-colors">
+<label class="flex items-start gap-3 cursor-pointer select-none">
+<input checked="" class="w-5 h-5 rounded mt-0.5 accent-primary cursor-pointer" onchange="toggleTask(this)" type="checkbox">
+<div class="flex flex-col min-w-0">
+<span class="font-label-lg text-label-lg text-on-surface font-medium line-through text-on-surface-variant task-title">📱 5 Stories interativos com enquetes</span>
+<p class="font-body-sm text-body-sm text-on-surface-variant mt-0.5">Enquete sobre dúvidas de skincare matinal e rotina noturna realizada.</p>
+</div>
+</label>
+</div>
+<!-- Item 3 -->
+<div class="p-space-sm rounded-lg bg-surface-container transition-colors">
+<label class="flex items-start gap-3 cursor-pointer select-none">
+<input class="w-5 h-5 rounded mt-0.5 accent-primary cursor-pointer" onchange="toggleTask(this)" type="checkbox">
+<div class="flex flex-col min-w-0">
+<span class="font-label-lg text-label-lg text-on-surface font-medium task-title">🏛️ 1 Conteúdo de autoridade</span>
+<p class="font-body-sm text-body-sm text-on-surface-variant mt-0.5">Carrossel aprofundado sobre tecnologia de novo laser dermatológico.</p>
+</div>
+</label>
+</div>
+<!-- Item 4 -->
+<div class="p-space-sm rounded-lg bg-surface-container transition-colors">
+<label class="flex items-start gap-3 cursor-pointer select-none">
+<input class="w-5 h-5 rounded mt-0.5 accent-primary cursor-pointer" onchange="toggleTask(this)" type="checkbox">
+<div class="flex flex-col min-w-0">
+<span class="font-label-lg text-label-lg text-on-surface font-medium task-title">📅 1 CTA focado em agendamento de consultas</span>
+<p class="font-body-sm text-body-sm text-on-surface-variant mt-0.5">Post convidativo direcionando para o link na bio/Direct particular.</p>
+</div>
+</label>
+</div>
+</div>
+</div>
+<!-- Botão de Ação Rápida Principal -->
+<div class="sticky bottom-20 z-30 pt-2">
+<button class="w-full h-12 rounded-xl bg-gradient-to-r from-primary to-secondary text-on-primary font-headline-sm text-headline-sm flex items-center justify-center gap-2 shadow-lg hover:opacity-95 active:scale-[0.99] transition-all" onclick="showPage('format')"><span class="material-symbols-outlined text-[22px]">auto_awesome</span> Criar Post com IA</button>
+</div>
+</div>
+<script>
+  function switchPeriod(period) {
+    const btn30 = document.getElementById('btn-30d');
+    const btn90 = document.getElementById('btn-90d');
+    if (period === '30d') {
+      btn30.className = 'px-4 py-1.5 rounded-full font-label-md text-label-md bg-primary text-on-primary font-semibold shadow-sm transition-all';
+      btn90.className = 'px-4 py-1.5 rounded-full font-label-md text-label-md text-on-surface-variant hover:text-on-surface transition-all';
+    } else {
+      btn90.className = 'px-4 py-1.5 rounded-full font-label-md text-label-md bg-primary text-on-primary font-semibold shadow-sm transition-all';
+      btn30.className = 'px-4 py-1.5 rounded-full font-label-md text-label-md text-on-surface-variant hover:text-on-surface transition-all';
+    }
+  }
+
+  function toggleTask(checkbox) {
+    const parentContainer = checkbox.closest('label');
+    const title = parentContainer.querySelector('.task-title');
+    if (checkbox.checked) {
+      title.classList.add('line-through', 'text-on-surface-variant');
+    } else {
+      title.classList.remove('line-through', 'text-on-surface-variant');
+    }
+
+    const allCheckboxes = document.querySelectorAll('#action-checklist input[type="checkbox"]');
+    const completed = Array.from(allCheckboxes).filter(cb => cb.checked).length;
+    const total = allCheckboxes.length;
+    
+    document.getElementById('checklist-counter').innerText = `${completed}/${total} concluídos`;
+    const percentage = (completed / total) * 100;
+    document.getElementById('checklist-progress-bar').style.width = `${percentage}%`;
+  }
+</script>

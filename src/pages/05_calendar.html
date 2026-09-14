@@ -1,0 +1,394 @@
+<div class="flex flex-col w-full max-w-md mx-auto gap-space-lg">
+<!-- 1. Cabeçalho de Calendário & Ação Rápida -->
+<div class="flex flex-col gap-space-md">
+<div class="flex items-start justify-between gap-space-sm">
+<div class="flex flex-col">
+<span class="font-headline-lg-mobile text-headline-lg-mobile text-on-surface font-bold tracking-tight">
+          Calendário &amp; Agendamento
+        </span>
+<span class="font-body-sm text-body-sm text-on-surface-variant flex items-center gap-space-xs mt-0.5">
+<span class="material-symbols-outlined text-[16px] text-primary">date_range</span>
+          Semana de 21 a 27 de Outubro
+        </span>
+</div>
+<!-- Botão Rápido + Agendar Conteúdo -->
+<button class="flex items-center gap-space-xs px-space-md py-space-sm bg-gradient-to-r from-primary-container to-secondary-container text-on-primary font-label-lg text-label-lg rounded-xl shadow-lg shadow-primary-container/20 active:scale-95 transition-all" id="btn-quick-schedule">
+<span class="material-symbols-outlined text-[18px]">add_circle</span>
+<span>Agendar</span>
+</button>
+</div>
+<!-- Filtros Pílula / Tabs -->
+<div class="flex items-center gap-space-xs overflow-x-auto pb-1 -mx-margin px-margin">
+<button class="px-space-md py-space-xs rounded-full bg-primary text-on-primary font-label-sm text-label-sm whitespace-nowrap shadow-sm">
+        Todos (9)
+      </button>
+<button class="px-space-md py-space-xs rounded-full bg-surface-container text-on-surface-variant font-label-sm text-label-sm whitespace-nowrap hover:text-on-surface active:bg-surface-container-high transition-colors">
+        Feed/Reels (5)
+      </button>
+<button class="px-space-md py-space-xs rounded-full bg-surface-container text-on-surface-variant font-label-sm text-label-sm whitespace-nowrap hover:text-on-surface active:bg-surface-container-high transition-colors">
+        Stories (4)
+      </button>
+<button class="px-space-md py-space-xs rounded-full bg-surface-container text-secondary font-label-sm text-label-sm whitespace-nowrap flex items-center gap-1 hover:text-on-surface active:bg-surface-container-high transition-colors">
+<span class="material-symbols-outlined text-[14px]">auto_awesome</span>
+        Sugestões IA (3)
+      </button>
+</div>
+</div>
+<!-- 2. Seletor Horizontal Dinâmico dos Dias da Semana -->
+<div class="flex flex-col gap-space-xs">
+<div class="flex items-center justify-between">
+<span class="font-label-md text-label-md text-on-surface-variant uppercase tracking-wider">Cronograma Semanal</span>
+<span class="font-label-sm text-label-sm text-primary flex items-center gap-0.5">
+<span class="w-1.5 h-1.5 rounded-full bg-primary animate-pulse"></span>
+        Sincronizado Meta API
+      </span>
+</div>
+<!-- Trilho Horizontal de Dias -->
+<div class="flex gap-space-xs overflow-x-auto pb-2 -mx-margin px-margin pt-1" id="week-strip">
+<!-- Seg 21 -->
+<div class="flex flex-col items-center justify-between min-w-[56px] h-24 p-space-xs rounded-xl bg-surface-container text-on-surface-variant cursor-pointer active:scale-95 transition-transform">
+<span class="font-label-sm text-label-sm">SEG</span>
+<span class="font-headline-sm text-headline-sm text-on-surface font-bold">21</span>
+<div class="flex gap-1 items-center mb-1">
+<span class="w-2 h-2 rounded-full bg-secondary" title="Reels agendado"></span>
+<span class="w-2 h-2 rounded-full bg-tertiary" title="Story"></span>
+</div>
+</div>
+<!-- Ter 22 -->
+<div class="flex flex-col items-center justify-between min-w-[56px] h-24 p-space-xs rounded-xl bg-surface-container text-on-surface-variant cursor-pointer active:scale-95 transition-transform">
+<span class="font-label-sm text-label-sm">TER</span>
+<span class="font-headline-sm text-headline-sm text-on-surface font-bold">22</span>
+<div class="flex gap-1 items-center mb-1">
+<span class="w-2 h-2 rounded-full bg-primary" title="Carrossel Publicado"></span>
+</div>
+</div>
+<!-- Qua 23 (Hoje - Selecionado Ativo) -->
+<div class="flex flex-col items-center justify-between min-w-[62px] h-24 p-space-xs rounded-xl bg-primary-container text-on-primary shadow-[0_4px_16px_rgba(41,161,149,0.35)] relative scale-105 cursor-pointer">
+<div class="px-1.5 py-0.5 bg-surface-container-lowest/80 text-primary-fixed rounded-full font-label-sm text-[9px] uppercase font-bold tracking-tight">
+          Hoje
+        </div>
+<div class="flex flex-col items-center leading-none">
+<span class="font-label-sm text-label-sm font-semibold opacity-90">QUA</span>
+<span class="font-headline-sm text-headline-sm font-bold text-on-primary">23</span>
+</div>
+<div class="flex gap-1 items-center mb-1">
+<span class="w-2 h-2 rounded-full bg-tertiary" title="Story"></span>
+<span class="w-2 h-2 rounded-full bg-tertiary" title="Story"></span>
+<span class="w-2 h-2 rounded-full bg-secondary-fixed" title="Reels"></span>
+</div>
+</div>
+<!-- Qui 24 (Sugestão IA) -->
+<div class="flex flex-col items-center justify-between min-w-[56px] h-24 p-space-xs rounded-xl bg-surface-container text-on-surface-variant cursor-pointer active:scale-95 transition-transform">
+<div class="flex items-center gap-0.5 text-secondary">
+<span class="material-symbols-outlined text-[12px]">auto_awesome</span>
+<span class="font-label-sm text-[9px]">IA</span>
+</div>
+<span class="font-label-sm text-label-sm">QUI</span>
+<span class="font-headline-sm text-headline-sm text-on-surface font-bold">24</span>
+<div class="flex gap-1 items-center mb-1">
+<span class="w-2 h-2 rounded-full bg-secondary animate-pulse" title="Sugerido"></span>
+</div>
+</div>
+<!-- Sex 25 -->
+<div class="flex flex-col items-center justify-between min-w-[56px] h-24 p-space-xs rounded-xl bg-surface-container text-on-surface-variant cursor-pointer active:scale-95 transition-transform">
+<span class="font-label-sm text-label-sm">SEX</span>
+<span class="font-headline-sm text-headline-sm text-on-surface font-bold">25</span>
+<div class="flex gap-1 items-center mb-1">
+<span class="w-2 h-2 rounded-full bg-tertiary" title="Story"></span>
+<span class="w-2 h-2 rounded-full bg-tertiary" title="Story"></span>
+<span class="w-2 h-2 rounded-full bg-primary" title="CTA Consulta"></span>
+</div>
+</div>
+<!-- Sáb 26 -->
+<div class="flex flex-col items-center justify-between min-w-[56px] h-24 p-space-xs rounded-xl bg-surface-container text-on-surface-variant cursor-pointer active:scale-95 transition-transform">
+<span class="font-label-sm text-label-sm">SÁB</span>
+<span class="font-headline-sm text-headline-sm text-on-surface font-bold">26</span>
+<div class="flex gap-1 items-center mb-1">
+<span class="w-2 h-2 rounded-full bg-secondary" title="Reels Agendado"></span>
+</div>
+</div>
+<!-- Dom 27 -->
+<div class="flex flex-col items-center justify-between min-w-[56px] h-24 p-space-xs rounded-xl bg-surface-container-low text-on-surface-variant/70 cursor-pointer active:scale-95 transition-transform">
+<span class="font-label-sm text-label-sm">DOM</span>
+<span class="font-headline-sm text-headline-sm text-on-surface/60 font-bold">27</span>
+<span class="material-symbols-outlined text-[14px] text-primary/60 mb-1">add</span>
+</div>
+</div>
+<!-- Legenda de Cores -->
+<div class="flex items-center justify-center gap-space-md pt-1">
+<span class="flex items-center gap-1 font-label-sm text-[11px] text-on-surface-variant">
+<span class="w-2 h-2 rounded-full bg-secondary"></span> Reels
+      </span>
+<span class="flex items-center gap-1 font-label-sm text-[11px] text-on-surface-variant">
+<span class="w-2 h-2 rounded-full bg-tertiary"></span> Stories
+      </span>
+<span class="flex items-center gap-1 font-label-sm text-[11px] text-on-surface-variant">
+<span class="w-2 h-2 rounded-full bg-primary"></span> Carrossel/Feed
+      </span>
+</div>
+</div>
+<!-- 3. Status Geral da Frequência Semanal (Meta IA vs Realizado) -->
+<div class="p-space-md rounded-xl bg-surface-container-low shadow-md flex flex-col gap-space-sm">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-space-xs">
+<span class="material-symbols-outlined text-primary text-[20px]">verified</span>
+<span class="font-label-lg text-label-lg text-on-surface font-semibold">Meta Semanal da IA Médica</span>
+</div>
+<span class="px-2 py-0.5 rounded-full bg-primary/10 text-primary font-label-sm text-label-sm font-bold">
+        Ótimo Ritmo
+      </span>
+</div>
+<!-- Micro Barra de Progresso com SVG -->
+<div class="flex flex-col gap-1.5 mt-1">
+<div class="flex justify-between items-center text-on-surface-variant font-label-sm text-label-sm">
+<span>Conclusão do Plano Ético</span>
+<span class="text-primary font-bold">85% Completo</span>
+</div>
+<div class="w-full h-2 bg-surface-container-highest rounded-full overflow-hidden">
+<div class="h-full bg-gradient-to-r from-primary to-secondary rounded-full" style="width: 85%;"></div>
+</div>
+</div>
+<!-- Grid de Métricas de Frequência -->
+<div class="grid grid-cols-3 gap-space-xs pt-space-xs text-center">
+<div class="p-space-xs rounded-lg bg-surface-container flex flex-col">
+<span class="font-headline-sm text-headline-sm text-on-surface font-bold">2<span class="text-on-surface-variant font-body-sm">/3</span></span>
+<span class="font-label-sm text-[11px] text-on-surface-variant">Reels</span>
+</div>
+<div class="p-space-xs rounded-lg bg-surface-container flex flex-col">
+<span class="font-headline-sm text-headline-sm text-on-surface font-bold">4<span class="text-on-surface-variant font-body-sm">/5</span></span>
+<span class="font-label-sm text-[11px] text-on-surface-variant">Stories</span>
+</div>
+<div class="p-space-xs rounded-lg bg-surface-container flex flex-col">
+<span class="font-headline-sm text-headline-sm text-primary font-bold">1<span class="text-on-surface-variant font-body-sm">/1</span></span>
+<span class="font-label-sm text-[11px] text-on-surface-variant">Carrossel</span>
+</div>
+</div>
+</div>
+<!-- 4. Linha do Tempo / Programação do Dia Selecionado -->
+<div class="flex flex-col gap-space-md">
+<!-- Cabeçalho do Dia + Horário de Pico de Audiência -->
+<div class="flex flex-col gap-1">
+<div class="flex items-center justify-between">
+<span class="font-headline-sm text-headline-sm text-on-surface font-bold">
+          Quarta-feira, 23 de Outubro
+        </span>
+<span class="px-2 py-0.5 rounded-md bg-surface-container font-label-sm text-label-sm text-secondary flex items-center gap-1">
+<span class="material-symbols-outlined text-[14px]">insights</span>
+          3 Atividades
+        </span>
+</div>
+<!-- Indicador Audiência Médica -->
+<div class="flex items-center gap-space-xs px-space-sm py-1.5 rounded-lg bg-surface-container-low text-on-surface-variant">
+<span class="material-symbols-outlined text-[16px] text-tertiary">bolt</span>
+<span class="font-label-sm text-[11px]">
+          Pico de pacientes ativos: <strong class="text-on-surface">12h30</strong> e <strong class="text-on-surface">19h30</strong>
+</span>
+</div>
+</div>
+<!-- Card de Post Agendado 1 (Story Interativo - 09:15) -->
+<div class="p-space-md rounded-xl bg-surface-container-low shadow-sm flex flex-col gap-space-sm transition-all hover:bg-surface-container">
+<div class="flex items-center justify-between">
+<span class="px-2.5 py-0.5 rounded-full bg-tertiary/15 text-tertiary font-label-sm text-label-sm font-semibold flex items-center gap-1">
+<span class="material-symbols-outlined text-[14px]">find_replace</span>
+          Story Agendado • 09:15
+        </span>
+<!-- Toggle Ativo Auto-post -->
+<div class="flex items-center gap-1.5">
+<span class="font-label-sm text-[10px] text-on-surface-variant">Auto Meta API</span>
+<label class="relative inline-flex items-center cursor-pointer">
+<input checked="" class="sr-only peer" type="checkbox"/>
+<div class="w-8 h-4 bg-surface-container-highest peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:rounded-full after:h-3 after:w-3 after:transition-all peer-checked:bg-primary"></div>
+</label>
+</div>
+</div>
+<div class="flex gap-space-sm items-center">
+<div class="w-16 h-20 rounded-lg overflow-hidden shrink-0 relative bg-surface-container-high">
+<img class="w-full h-full object-cover" data-alt="Close-up macro of premium aesthetic sunscreen lotion texture on modern clinical marble counter with warm golden morning lighting, dermatological and refined medical context" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCFCooTSiXsXHj0Eid-tAO3NnJdlbN7UjqnC1H0-B0vHaoAq80pPikuJy7OET9ovlOtWmmMeqC19ZtL4BWerhFkCQz5dgHMA22ZFqIfOOj0GwC_EqU7rGOHfO42S_TeQ_d2j_HJaZFYqT4ypOOmr2-iL--qWlgvE3RRqKrcpVJJmychZfAWj16Ozm8iouCDICdnSXGVmVd0EoGNZZNF-I_9WGRbYaIF6I8bQCGx0bTVc-RlFfeT-4RN"/>
+<div class="absolute inset-0 bg-gradient-to-t from-surface-container-lowest/80 to-transparent flex items-end justify-center pb-1">
+<span class="font-label-sm text-[9px] text-on-surface bg-surface-container/80 px-1 rounded">Enquete</span>
+</div>
+</div>
+<div class="flex flex-col min-w-0 flex-1">
+<span class="font-label-lg text-label-lg text-on-surface font-semibold line-clamp-2">
+            Enquete Matinal: Qual seu maior desafio com Protetor Solar diário?
+          </span>
+<span class="font-body-sm text-body-sm text-on-surface-variant line-clamp-1 mt-0.5">
+            Opções: Pele oleosa vs. Reaplicação fora de casa
+          </span>
+<div class="flex items-center gap-space-xs mt-2 text-primary font-label-sm text-label-sm">
+<span class="material-symbols-outlined text-[14px]">check_circle</span>
+<span>Pronto para disparo automático</span>
+</div>
+</div>
+</div>
+<!-- Barra de Ações Rápidas -->
+<div class="flex items-center justify-end gap-space-xs pt-1">
+<button class="p-1.5 rounded-lg bg-surface-container text-on-surface-variant hover:text-on-surface active:bg-surface-container-high transition-colors" title="Prévia">
+<span class="material-symbols-outlined text-[18px]">visibility</span>
+</button>
+<button class="p-1.5 rounded-lg bg-surface-container text-on-surface-variant hover:text-on-surface active:bg-surface-container-high transition-colors" title="Editar">
+<span class="material-symbols-outlined text-[18px]">edit</span>
+</button>
+<button class="p-1.5 rounded-lg bg-surface-container text-on-surface-variant hover:text-on-surface active:bg-surface-container-high transition-colors" title="Mais opções">
+<span class="material-symbols-outlined text-[18px]">more_vert</span>
+</button>
+</div>
+</div>
+<!-- Card de Post Agendado 2 (Reels Educativo - 19:30 Horário Nobre) -->
+<div class="p-space-md rounded-xl bg-surface-container-low shadow-lg flex flex-col gap-space-sm relative overflow-hidden">
+<!-- Glow sutil de horário de pico -->
+<div class="absolute -top-10 -right-10 w-28 h-28 bg-secondary/10 rounded-full blur-2xl pointer-events-none"></div>
+<div class="flex items-center justify-between">
+<span class="px-2.5 py-0.5 rounded-full bg-gradient-to-r from-primary/20 to-secondary/20 text-secondary-fixed font-label-sm text-label-sm font-semibold flex items-center gap-1">
+<span class="material-symbols-outlined text-[14px]">stars</span>
+          Reels IA • 19:30 (Melhor Horário 🌟)
+        </span>
+<span class="px-2 py-0.5 rounded bg-surface-container text-primary font-label-sm text-[10px] font-semibold flex items-center gap-1">
+<span class="material-symbols-outlined text-[12px]">verified_user</span>
+          CFM Conforme
+        </span>
+</div>
+<div class="flex gap-space-sm items-start">
+<div class="w-16 h-24 rounded-lg overflow-hidden shrink-0 relative bg-surface-container-high shadow">
+<img class="w-full h-full object-cover" data-alt="Portrait of an elegant female dermatologist in a crisp white medical coat holding a sleek aesthetic medical consultation tablet in a minimalist luxury clinic with soft cyan ambient lights" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBMIxR59gbhQMKF4mOvhoJtJcKLoR45w8Z6afMg-jh-GoDArDgJIx9PHSPoVZT5Z-z09OU6-rCqnYmH40Ver01FUynj8hlDVLvnp3fKrBgI0pgmpoo2KqyitkrO-4_DEiaC5z6mOnTQBq76UDHBw1AbKY6qTzHoZ_-lHrwllAwTmT_FTn6P4MbCPKsfe6c6cRT4f5QgM21cSs7dm7Ktz5wx6kaypucUY6ePrPl-_K7t2l4RenR_SQK6"/>
+<div class="absolute bottom-1 right-1 p-0.5 bg-surface-container-lowest/80 rounded-full flex items-center justify-center">
+<span class="material-symbols-outlined text-[14px] text-secondary">play_arrow</span>
+</div>
+</div>
+<div class="flex flex-col min-w-0 flex-1">
+<span class="font-label-lg text-label-lg text-on-surface font-semibold leading-tight">
+            3 Mitos do Botox Preventivo aos 30 anos
+          </span>
+<span class="font-body-sm text-body-sm text-on-surface-variant line-clamp-2 mt-1">
+            Roteiro com gancho nos primeiros 3s gerado pela IA. Legenda ética com CRM/RQE Dra. Isabella Silva.
+          </span>
+<div class="flex items-center gap-2 mt-2">
+<span class="inline-flex items-center gap-1 px-1.5 py-0.5 rounded bg-surface-container text-on-surface-variant font-label-sm text-[10px]">
+<span class="material-symbols-outlined text-[12px] text-secondary">music_note</span>
+              Áudio Trend (+180k)
+            </span>
+<span class="inline-flex items-center gap-1 px-1.5 py-0.5 rounded bg-surface-container text-on-surface-variant font-label-sm text-[10px]">
+<span class="material-symbols-outlined text-[12px] text-tertiary">timer</span>
+              42 seg
+            </span>
+</div>
+</div>
+</div>
+<!-- Barra de Ações com Roteiro Expansível -->
+<div class="flex items-center justify-between pt-1">
+<button class="px-space-sm py-1 rounded-lg bg-surface-container hover:bg-surface-container-high text-secondary font-label-sm text-label-sm flex items-center gap-1 transition-colors">
+<span class="material-symbols-outlined text-[16px]">description</span>
+          Ver Roteiro Teleprompter
+        </button>
+<div class="flex items-center gap-space-xs">
+<button class="p-1.5 rounded-lg bg-surface-container text-on-surface-variant hover:text-on-surface active:bg-surface-container-high transition-colors" title="Prévia">
+<span class="material-symbols-outlined text-[18px]">visibility</span>
+</button>
+<button class="p-1.5 rounded-lg bg-surface-container text-on-surface-variant hover:text-on-surface active:bg-surface-container-high transition-colors" title="Editar">
+<span class="material-symbols-outlined text-[18px]">tune</span>
+</button>
+</div>
+</div>
+</div>
+<!-- Card de Sugestão de Agendamento da IA (Vaga Livre de Alto Engajamento - 21:00) -->
+<div class="p-space-md rounded-xl bg-surface-container-lowest shadow-sm flex flex-col gap-space-sm relative">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-1.5 text-secondary">
+<span class="material-symbols-outlined text-[18px] animate-spin" style="animation-duration: 4s;">magic_button</span>
+<span class="font-label-lg text-label-lg font-semibold">Oportunidade de Alto Engajamento</span>
+</div>
+<span class="px-2 py-0.5 rounded-full bg-secondary/10 text-secondary font-label-sm text-[10px] font-bold">
+          21:00 Livre
+        </span>
+</div>
+<div class="flex flex-col">
+<span class="font-body-md text-body-md text-on-surface font-medium">
+          IA sugere: Story de Bastidores ou Caixa de Dúvidas Rápida
+        </span>
+<span class="font-body-sm text-body-sm text-on-surface-variant mt-0.5">
+          Suas seguidoras engajam 3.4x mais com stickers de perguntas nas quartas à noite.
+        </span>
+</div>
+<!-- Botão de Ação Imediata -->
+<button class="w-full py-space-sm px-space-md rounded-xl bg-surface-container-high hover:bg-surface-variant text-primary font-label-lg text-label-lg flex items-center justify-center gap-space-xs transition-all active:scale-[0.98]">
+<span class="material-symbols-outlined text-[18px]">auto_awesome</span>
+<span>Gerar Story com 1 Toque</span>
+</button>
+</div>
+</div>
+<!-- 5. Configurações de Postagem Inteligente -->
+<div class="p-space-md rounded-xl bg-surface-container-low flex flex-col gap-space-md">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-space-xs">
+<span class="material-symbols-outlined text-primary text-[20px]">smart_toy</span>
+<span class="font-label-lg text-label-lg text-on-surface font-semibold">Postagem Inteligente &amp; Regras</span>
+</div>
+<span class="px-2 py-0.5 rounded-full bg-primary/10 text-primary font-label-sm text-[10px] font-bold uppercase">
+        Segurança Jurídica
+      </span>
+</div>
+<div class="flex flex-col gap-space-sm">
+<!-- Opção 1 -->
+<div class="flex items-center justify-between p-space-sm rounded-lg bg-surface-container">
+<div class="flex flex-col pr-2">
+<span class="font-label-md text-label-md text-on-surface font-medium">Disparo Automático Meta API</span>
+<span class="font-body-sm text-[11px] text-on-surface-variant">Posta no Instagram sem ação manual</span>
+</div>
+<label class="relative inline-flex items-center cursor-pointer shrink-0">
+<input checked="" class="sr-only peer" type="checkbox"/>
+<div class="w-9 h-5 bg-surface-container-highest peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:rounded-full after:h-4 after:w-4 after:transition-all peer-checked:bg-primary"></div>
+</label>
+</div>
+<!-- Opção 2 -->
+<div class="flex items-center justify-between p-space-sm rounded-lg bg-surface-container">
+<div class="flex flex-col pr-2">
+<span class="font-label-md text-label-md text-on-surface font-medium">Aviso Prévio no WhatsApp</span>
+<span class="font-body-sm text-[11px] text-on-surface-variant">15 min antes na recepção/médico</span>
+</div>
+<label class="relative inline-flex items-center cursor-pointer shrink-0">
+<input checked="" class="sr-only peer" type="checkbox"/>
+<div class="w-9 h-5 bg-surface-container-highest peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:rounded-full after:h-4 after:w-4 after:transition-all peer-checked:bg-primary"></div>
+</label>
+</div>
+<!-- Opção 3 -->
+<div class="flex items-center justify-between p-space-sm rounded-lg bg-surface-container">
+<div class="flex flex-col pr-2">
+<span class="font-label-md text-label-md text-on-surface font-medium">Inclusão Automática CRM/RQE</span>
+<span class="font-body-sm text-[11px] text-on-surface-variant">Obrigatório pela resolução CFM 2.336/23</span>
+</div>
+<label class="relative inline-flex items-center cursor-pointer shrink-0">
+<input checked="" class="sr-only peer" disabled="" type="checkbox"/>
+<div class="w-9 h-5 bg-primary rounded-full relative after:content-[''] after:absolute after:top-[2px] after:right-[2px] after:bg-white after:rounded-full after:h-4 after:w-4"></div>
+</label>
+</div>
+</div>
+</div>
+</div>
+<script>
+  (function() {
+    const scheduleBtn = document.getElementById('btn-quick-schedule');
+    if (scheduleBtn) {
+      scheduleBtn.addEventListener('click', function() {
+        const originalText = scheduleBtn.innerHTML;
+        scheduleBtn.innerHTML = '<span class="material-symbols-outlined text-[18px] animate-spin">progress_activity</span><span>Abrindo...</span>';
+        setTimeout(function() {
+          scheduleBtn.innerHTML = originalText;
+        }, 1200);
+      });
+    }
+
+    const dayCards = document.querySelectorAll('#week-strip > div');
+    dayCards.forEach(card => {
+      card.addEventListener('click', function() {
+        dayCards.forEach(c => {
+          c.classList.remove('bg-primary-container', 'text-on-primary', 'scale-105', 'shadow-[0_4px_16px_rgba(41,161,149,0.35)]');
+          if (!c.classList.contains('bg-surface-container-low')) {
+            c.classList.add('bg-surface-container', 'text-on-surface-variant');
+          }
+        });
+        this.classList.remove('bg-surface-container', 'text-on-surface-variant');
+        this.classList.add('bg-primary-container', 'text-on-primary', 'scale-105', 'shadow-[0_4px_16px_rgba(41,161,149,0.35)]');
+      });
+    });
+  })();
+</script>
