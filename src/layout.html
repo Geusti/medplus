@@ -124,7 +124,7 @@ tailwind.config = {
 <body class="bg-surface text-on-surface min-h-screen flex flex-col justify-between selection:bg-primary/30 relative">
 
 <!-- TOP SYSTEM HEADER -->
-<header class="sticky top-0 z-50 bg-surface-container-low/95 backdrop-blur-md border-b border-surface-variant/50 px-4 py-3 flex items-center justify-between shadow-lg">
+<header id="global-header" class="sticky top-0 z-50 bg-surface-container-low/95 backdrop-blur-md border-b border-surface-variant/50 px-4 py-3 flex items-center justify-between shadow-lg hidden">
   <div class="flex items-center gap-3 cursor-pointer" onclick="showPage('dashboard')">
     <div class="w-9 h-9 rounded-xl bg-gradient-to-tr from-primary-container to-secondary flex items-center justify-center shadow-md shadow-primary/20">
       <span class="material-symbols-outlined text-on-primary text-xl" style="font-variation-settings: 'FILL' 1;">vital_signs</span>
@@ -178,7 +178,7 @@ tailwind.config = {
 </main>
 
 <!-- BOTTOM NAVIGATION DOCK -->
-<nav class="fixed bottom-0 left-0 w-full z-50 bg-surface-container-lowest/95 backdrop-blur-xl border-t border-surface-variant/40 shadow-2xl">
+<nav id="global-nav" class="fixed bottom-0 left-0 w-full z-50 bg-surface-container-lowest/95 backdrop-blur-xl border-t border-surface-variant/40 shadow-2xl hidden">
   <div class="max-w-4xl mx-auto flex justify-around items-center h-16 px-4">
     <button onclick="showPage('dashboard')" class="flex flex-col items-center justify-center gap-1 text-on-surface-variant hover:text-primary transition-colors focus:text-primary">
       <span class="material-symbols-outlined text-2xl">space_dashboard</span>
@@ -210,6 +210,21 @@ function showPage(pageId) {
     window.scrollTo({ top: 0, behavior: 'smooth' });
     const sel = document.getElementById('screen-selector');
     if (sel && sel.value !== pageId) sel.value = pageId;
+
+    // Hide header and nav on onboarding pages
+    const header = document.getElementById('global-header');
+    const nav = document.getElementById('global-nav');
+    const hideNavPages = ['login', 'meta-connect', 'onboarding'];
+    
+    if (hideNavPages.includes(pageId)) {
+      if (header) header.classList.add('hidden');
+      if (nav) nav.classList.add('hidden');
+      if (header) header.classList.remove('flex');
+    } else {
+      if (header) header.classList.remove('hidden');
+      if (nav) nav.classList.remove('hidden');
+      if (header) header.classList.add('flex');
+    }
   }
 }
 
