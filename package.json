@@ -1,0 +1,15 @@
+{
+  "name": "medpulse-ai",
+  "version": "1.0.0",
+  "description": "MedPulse AI - Console de Crescimento Médico com IA e Integração Meta Instagram",
+  "main": "api/server.js",
+  "scripts": {
+    "start": "node api/server.js",
+    "dev": "node api/server.js"
+  },
+  "dependencies": {
+    "cors": "^2.8.6",
+    "dotenv": "^16.6.1",
+    "express": "^4.22.2"
+  }
+}
