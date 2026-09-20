@@ -3,6 +3,7 @@ const https = require('https');
 const crypto = require('crypto');
 const fs = require('fs');
 const path = require('path');
+require('dotenv').config({ path: path.join(__dirname, '..', '.env') });
 
 const app = express();
 app.use(express.json());
@@ -17,8 +18,10 @@ app.use((req, res, next) => {
 });
 
 // Environment variables
-const INSTAGRAM_ACCESS_TOKEN = process.env.INSTAGRAM_ACCESS_TOKEN || 'IGAAOZCvWpXlFFBZAFpnWjdHSjNSWlRDMnFibExaUnRPRG54VVdWbld2U0ZADNV9zSmNxZAGMzbDdWQ24yVmkzYjhCQ1lsSWo4c2ozaGJ2dGhPTDhfUnBXODZAaX1g3VGNpaXBOb0pvMjRlb3VqeUE2NndpdGRFNHFvVGFDTnRWMUpuVQZDZD';
-const GEMINI_API_KEY = process.env.GEMINI_API_KEY || 'AIzaSyBcpHnBE6W9NMSw8fNNic5ySnjWjjGoABw';
+const META_APP_ID = process.env.META_APP_ID;
+const META_APP_SECRET = process.env.META_APP_SECRET;
+const META_REDIRECT_URI = process.env.META_REDIRECT_URI || 'http://localhost:3000/callback.html';
+const GEMINI_API_KEY = process.env.GEMINI_API_KEY;
 const ENCRYPTION_SECRET = process.env.ENCRYPTION_SECRET || 'medpulse_super_secret_key_2026';
 
 // Simple JSON Database file (encrypted payload)
@@ -67,9 +70,54 @@ function saveDB(data) {
   fs.writeFileSync(DB_FILE, encrypted, 'utf8');
 }
 
+// HTTP Request Helper
+function makeRequest(url, options = {}, postData = null) {
+  return new Promise((resolve, reject) => {
+    const req = https.request(url, options, (res) => {
+      let data = '';
+      res.on('data', chunk => data += chunk);
+      res.on('end', () => {
+        try {
+          const parsed = JSON.parse(data);
+          resolve(parsed);
+        } catch (e) {
+          reject(new Error('Invalid JSON response: ' + data));
+        }
+      });
+    });
+    req.on('error', reject);
+    if (postData) req.write(postData);
+    req.end();
+  });
+}
+
+// OAuth Route 1: Get Authorization URL
+app.get('/api/auth/instagram/url', (req, res) => {
+  const authUrl = `https://www.facebook.com/v19.0/dialog/oauth?client_id=${META_APP_ID}&display=page&extras={"setup":{"channel":"IG_API_ONBOARDING"}}&redirect_uri=${encodeURIComponent(META_REDIRECT_URI)}&response_type=token&scope=instagram_basic,instagram_content_publish,instagram_manage_comments,instagram_manage_insights,pages_show_list,pages_read_engagement`;
+  res.json({ success: true, url: authUrl });
+});
+
+// OAuth Route 2: Save token
+app.post('/api/auth/instagram/save', (req, res) => {
+  const { accessToken } = req.body;
+  if (!accessToken) return res.status(400).json({ success: false, error: 'Token missing' });
+  
+  // In a real multi-tenant app, we would verify the token and get the user ID.
+  // For this prototype, we save it globally to the DB.
+  const db = getDB();
+  db.instagram_token = accessToken;
+  saveDB(db);
+  
+  res.json({ success: true, message: 'Token saved successfully' });
+});
+
 // API Route 1: Fetch Live Instagram Profile Data
 app.get('/api/instagram/profile', (req, res) => {
-  const url = `https://graph.instagram.com/me?fields=id,username,account_type,media_count,profile_picture_url&access_token=${INSTAGRAM_ACCESS_TOKEN}`;
+  const db = getDB();
+  const token = db.instagram_token;
+  if (!token) return res.status(401).json({ success: false, error: 'Not authenticated' });
+  
+  const url = `https://graph.instagram.com/me?fields=id,username,account_type,media_count,profile_picture_url&access_token=${token}`;
   
   https.get(url, (apiRes) => {
     let data = '';
@@ -104,7 +152,11 @@ app.get('/api/instagram/profile', (req, res) => {
 
 // API Route 2: Fetch Live Instagram Posts & Metrics
 app.get('/api/instagram/media', (req, res) => {
-  const url = `https://graph.instagram.com/me/media?fields=id,caption,media_type,media_url,permalink,thumbnail_url,timestamp,like_count,comments_count&access_token=${INSTAGRAM_ACCESS_TOKEN}`;
+  const db = getDB();
+  const token = db.instagram_token;
+  if (!token) return res.status(401).json({ success: false, error: 'Not authenticated' });
+
+  const url = `https://graph.instagram.com/me/media?fields=id,caption,media_type,media_url,permalink,thumbnail_url,timestamp,like_count,comments_count&access_token=${token}`;
 
   https.get(url, (apiRes) => {
     let data = '';
